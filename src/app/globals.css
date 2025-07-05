@@ -1,26 +1,68 @@
+@tailwind utilities;
+
+/* ──────────────────────────────────────────────
+   Import Tailwind v4 core
+─────────────────────────────────────────────── */
 @import "tailwindcss";
 
+/* ──────────────────────────────────────────────
+   1. Base semantic tokens
+─────────────────────────────────────────────── */
 :root {
+  /* Light-mode surface & text */
   --background: #ffffff;
   --foreground: #171717;
+
+  /* Brand palette */
+  --raven-black: #0e0e11;
+  --hud-aqua-500: #00ffc6;
+  --hud-aqua-700: #008a7b;
+  --signal-green: #4d784e;
+  --alert-amber: #e1d798;
+  --steel-gray:  #424756;
+
+  /* Fonts (fallbacks included) */
+  --font-sans: var(--font-geist-sans, Arial, Helvetica, sans-serif);
+  --font-mono: var(--font-geist-mono, ui-monospace, SFMono-Regular, monospace);
 }
 
+/* ──────────────────────────────────────────────
+   2. Tailwind v4 theme registration
+─────────────────────────────────────────────── */
 @theme inline {
+  /* Expose background/foreground so utilities exist */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  /* Expose brand colors for utility generation */
+  --color-raven-black:  var(--raven-black);
+  --color-hud-aqua-500: var(--hud-aqua-500);
+  --color-hud-aqua-700: var(--hud-aqua-700);
+  --color-signal-green: var(--signal-green);
+  --color-alert-amber: var(--alert-amber);
+  --color-steel-gray:  var(--steel-gray);
+
+  /* Typography */
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
 }
 
+/* ──────────────────────────────────────────────
+   3. Automatic dark-mode swap (system preference)
+─────────────────────────────────────────────── */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: var(--raven-black);
     --foreground: #ededed;
   }
 }
 
+/* ──────────────────────────────────────────────
+   4. Global element resets
+─────────────────────────────────────────────── */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  @apply antialiased;
 }

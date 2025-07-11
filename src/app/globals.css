@@ -6,63 +6,380 @@
 @import "tailwindcss";
 
 /* ──────────────────────────────────────────────
-   1. Base semantic tokens
+   1. Enhanced semantic tokens for defense tech
 ─────────────────────────────────────────────── */
 :root {
-  /* Light-mode surface & text */
+  /* Core surfaces */
   --background: #ffffff;
   --foreground: #171717;
+  --background-secondary: #f8fafc;
+  --background-tertiary: #f1f5f9;
 
-  /* Brand palette */
+  /* Your brand palette (enhanced) */
   --raven-black: #0e0e11;
+  --raven-black-lighter: #1a1a1f;
   --hud-aqua-500: #00ffc6;
   --hud-aqua-700: #008a7b;
+  --hud-aqua-400: #33ffcf;
+  --hud-aqua-600: #00cc9d;
   --signal-green: #4d784e;
+  --signal-green-bright: #6ee86f;
   --alert-amber: #e1d798;
-  --steel-gray:  #424756;
+  --alert-amber-bright: #ffd700;
+  --steel-gray: #424756;
+  --steel-gray-light: #64748b;
+  --steel-gray-dark: #334155;
 
-  /* Fonts (fallbacks included) */
-  --font-sans: var(--font-geist-sans, Arial, Helvetica, sans-serif);
-  --font-mono: var(--font-geist-mono, ui-monospace, SFMono-Regular, monospace);
+  /* Additional defense tech colors */
+  --plasma-blue: #0ea5e9;
+  --plasma-blue-dark: #0284c7;
+  --warning-red: #ef4444;
+  --warning-red-dark: #dc2626;
+  --ghost-white: #f8fafc;
+  --carbon-fiber: #2d3748;
+
+  /* Glow & effects */
+  --glow-primary: 0 0 20px var(--hud-aqua-500);
+  --glow-secondary: 0 0 30px var(--plasma-blue);
+  --glow-accent: 0 0 15px var(--signal-green-bright);
+
+  /* Typography */
+  --font-sans: var(--font-geist-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif);
+  --font-mono: var(--font-geist-mono, ui-monospace, SFMono-Regular, "SF Mono", monospace);
+  --font-display: var(--font-geist-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif);
+
+  /* Spacing & sizing */
+  --header-height: 4rem;
+  --section-padding: 5rem;
+  --container-max: 1280px;
+  --border-radius-lg: 1rem;
+  --border-radius-xl: 1.5rem;
+
+  /* Animation durations */
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+  --duration-slowest: 800ms;
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, var(--hud-aqua-500) 0%, var(--plasma-blue) 100%);
+  --gradient-dark: linear-gradient(135deg, var(--raven-black) 0%, var(--carbon-fiber) 100%);
+  --gradient-mesh: radial-gradient(circle at 50% 50%, var(--hud-aqua-500) 0%, transparent 50%);
 }
 
 /* ──────────────────────────────────────────────
-   2. Tailwind v4 theme registration
+   2. Tailwind v4 theme registration (expanded)
 ─────────────────────────────────────────────── */
 @theme inline {
-  /* Expose background/foreground so utilities exist */
+  /* Core colors */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-background-secondary: var(--background-secondary);
+  --color-background-tertiary: var(--background-tertiary);
 
-  /* Expose brand colors for utility generation */
-  --color-raven-black:  var(--raven-black);
+  /* Brand palette */
+  --color-raven-black: var(--raven-black);
+  --color-raven-black-lighter: var(--raven-black-lighter);
   --color-hud-aqua-500: var(--hud-aqua-500);
   --color-hud-aqua-700: var(--hud-aqua-700);
+  --color-hud-aqua-400: var(--hud-aqua-400);
+  --color-hud-aqua-600: var(--hud-aqua-600);
   --color-signal-green: var(--signal-green);
+  --color-signal-green-bright: var(--signal-green-bright);
   --color-alert-amber: var(--alert-amber);
-  --color-steel-gray:  var(--steel-gray);
+  --color-alert-amber-bright: var(--alert-amber-bright);
+  --color-steel-gray: var(--steel-gray);
+  --color-steel-gray-light: var(--steel-gray-light);
+  --color-steel-gray-dark: var(--steel-gray-dark);
+  --color-plasma-blue: var(--plasma-blue);
+  --color-plasma-blue-dark: var(--plasma-blue-dark);
+  --color-warning-red: var(--warning-red);
+  --color-warning-red-dark: var(--warning-red-dark);
+  --color-ghost-white: var(--ghost-white);
+  --color-carbon-fiber: var(--carbon-fiber);
 
   /* Typography */
   --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);
+  --font-display: var(--font-display);
+
+  /* Custom animations */
+  --animate-glow-pulse: glow-pulse 2s ease-in-out infinite;
+  --animate-float: float 3s ease-in-out infinite;
+  --animate-slide-up: slide-up var(--duration-normal) ease-out;
+  --animate-slide-down: slide-down var(--duration-normal) ease-out;
+  --animate-fade-in: fade-in var(--duration-slow) ease-out;
+  --animate-scale-in: scale-in var(--duration-normal) ease-out;
+  --animate-radar-sweep: radar-sweep 4s linear infinite;
+  --animate-scan-line: scan-line 2s ease-in-out infinite;
+
+  /* Shadows */
+  --shadow-glow-sm: 0 0 10px var(--hud-aqua-500);
+  --shadow-glow-md: 0 0 20px var(--hud-aqua-500);
+  --shadow-glow-lg: 0 0 40px var(--hud-aqua-500);
+  --shadow-neon: 0 0 5px currentColor, 0 0 10px currentColor, 0 0 15px currentColor;
 }
 
 /* ──────────────────────────────────────────────
-   3. Automatic dark-mode swap (system preference)
+   3. Dark mode (system preference + manual)
 ─────────────────────────────────────────────── */
 @media (prefers-color-scheme: dark) {
   :root {
     --background: var(--raven-black);
     --foreground: #ededed;
+    --background-secondary: var(--raven-black-lighter);
+    --background-tertiary: var(--carbon-fiber);
   }
 }
 
+.dark {
+  --background: var(--raven-black);
+  --foreground: #ededed;
+  --background-secondary: var(--raven-black-lighter);
+  --background-tertiary: var(--carbon-fiber);
+}
+
 /* ──────────────────────────────────────────────
-   4. Global element resets
+   4. Advanced keyframe animations
 ─────────────────────────────────────────────── */
+@keyframes glow-pulse {
+  0%, 100% { 
+    box-shadow: 0 0 5px var(--hud-aqua-500), 0 0 10px var(--hud-aqua-500), 0 0 15px var(--hud-aqua-500);
+    opacity: 1;
+  }
+  50% { 
+    box-shadow: 0 0 10px var(--hud-aqua-500), 0 0 20px var(--hud-aqua-500), 0 0 30px var(--hud-aqua-500);
+    opacity: 0.8;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes slide-up {
+  from { 
+    opacity: 0; 
+    transform: translateY(30px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+@keyframes slide-down {
+  from { 
+    opacity: 0; 
+    transform: translateY(-30px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scale-in {
+  from { 
+    opacity: 0; 
+    transform: scale(0.9); 
+  }
+  to { 
+    opacity: 1; 
+    transform: scale(1); 
+  }
+}
+
+@keyframes radar-sweep {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes scan-line {
+  0%, 100% { transform: translateX(-100%); }
+  50% { transform: translateX(100vw); }
+}
+
+/* ──────────────────────────────────────────────
+   5. Global element styling
+─────────────────────────────────────────────── */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-height);
+}
+
 body {
   background: var(--color-background);
   color: var(--color-foreground);
   font-family: var(--font-sans);
+  line-height: 1.6;
   @apply antialiased;
+  overflow-x: hidden;
+}
+
+/* ──────────────────────────────────────────────
+   6. Custom utility classes
+─────────────────────────────────────────────── */
+@layer utilities {
+  /* Text effects */
+  .text-glow {
+    text-shadow: 0 0 10px currentColor;
+  }
+  
+  .text-neon {
+    text-shadow: 
+      0 0 5px currentColor,
+      0 0 10px currentColor,
+      0 0 15px currentColor,
+      0 0 20px currentColor;
+  }
+
+  .text-gradient-primary {
+    background: var(--gradient-primary);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Border effects */
+  .border-glow {
+    border: 1px solid var(--hud-aqua-500);
+    box-shadow: var(--glow-primary);
+  }
+
+  .border-neon {
+    border: 1px solid currentColor;
+    box-shadow: 
+      inset 0 0 10px currentColor,
+      0 0 10px currentColor;
+  }
+
+  /* Background effects */
+  .bg-gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .bg-gradient-dark {
+    background: var(--gradient-dark);
+  }
+
+  .bg-mesh {
+    background: var(--gradient-mesh);
+    opacity: 0.1;
+  }
+
+  /* Glass morphism */
+  .glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .glass-dark {
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Animation utilities */
+  .animate-glow-pulse {
+    animation: var(--animate-glow-pulse);
+  }
+
+  .animate-float {
+    animation: var(--animate-float);
+  }
+
+  .animate-slide-up {
+    animation: var(--animate-slide-up);
+  }
+
+  .animate-fade-in {
+    animation: var(--animate-fade-in);
+  }
+
+  .animate-scale-in {
+    animation: var(--animate-scale-in);
+  }
+
+  /* Layout utilities */
+  .section-padding {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+  }
+
+  .container-max {
+    max-width: var(--container-max);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Interactive states */
+  .interactive-glow {
+    transition: all var(--duration-normal) ease;
+  }
+
+  .interactive-glow:hover {
+    box-shadow: var(--glow-primary);
+    transform: translateY(-2px);
+  }
+
+  /* Scanning line effect */
+  .scan-line::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--gradient-primary);
+    animation: var(--animate-scan-line);
+    opacity: 0.7;
+  }
+}
+
+/* ──────────────────────────────────────────────
+   7. Component-level styling
+─────────────────────────────────────────────── */
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-steel-gray);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-hud-aqua-500);
+}
+
+/* Selection styling */
+::selection {
+  background: var(--color-hud-aqua-500);
+  color: var(--color-raven-black);
+}
+
+/* Focus states */
+:focus-visible {
+  outline: 2px solid var(--color-hud-aqua-500);
+  outline-offset: 2px;
 }

@@ -22,7 +22,7 @@ const HeroSection = () => {
       </nav>
 
       {/* Main Content Grid */}
-      <div className="relative z-10 flex items-center justify-center" style={{ height: 'calc(100vh - 120px)' }}>
+      <div className="absolute inset-0 flex items-center justify-center pt-20" style={{ marginTop: '-4rem' }}>
         <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16">
           
           {/* Left Side - 3D Model Placeholder */}
@@ -62,7 +62,7 @@ const HeroSection = () => {
                 field-ready design. The first RF system to<br />
                 achieve{' '}
                 <span 
-                  className="italic font-medium"
+                  className="font-bold"
                   style={{ color: '#FFFFFF' }}
                 >
                   zero acoustic signature
@@ -74,12 +74,13 @@ const HeroSection = () => {
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex flex-col items-center text-gray-400">
+      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center text-gray-400">
         <div className="w-px h-8 bg-gradient-to-b from-transparent via-hud-aqua-500 to-transparent mb-2 animate-glow-pulse"></div>
         <div
-          className="text-xl"
+          className="text-2xl font-light text-white"
           style={{
-            animation: 'bounce 2s ease-in-out infinite'
+            animation: 'bounce 2s ease-in-out infinite',
+            textShadow: '0 0 10px #00ffc6, 0 0 20px #00ffc6, 0 0 30px #00ffc6'
           }}
         >
           ↓

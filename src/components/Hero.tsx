@@ -1,176 +1,18 @@
 "use client";
 
 import React from 'react';
-import { SparklesCore } from './ui/sparkles';
 
 const HeroSection = () => {
   return (
     <div className="relative min-h-screen bg-raven-black overflow-hidden">
-      {/* Energy Ribbon Background - Full Coverage with Ultra-Dense, Ultra-Slow Flow */}
-      <div className="absolute inset-0 z-10">
-        {/* Far Left Dense Zone - Full Screen Height */}
-        <div className="absolute left-0 top-0 w-[12%] h-[100%]">
-          <SparklesCore
-            id="hero-energy-far-left"
-            background="transparent"
-            minSize={0.4}
-            maxSize={1.5}
-            particleDensity={500}
-            className="w-full h-full"
-            particleColor="#ffffff"
-            speed={0.15}
-          />
-        </div>
-        
-        {/* Left Zone - Slight Curve Inward */}
-        <div className="absolute left-[10%] top-[8%] w-[12%] h-[84%]">
-          <SparklesCore
-            id="hero-energy-left"
-            background="transparent"
-            minSize={0.4}
-            maxSize={1.4}
-            particleDensity={450}
-            className="w-full h-full"
-            particleColor="#ffffff"
-            speed={0.12}
-          />
-        </div>
-        
-        {/* Left-Mid Zone - More Curve */}
-        <div className="absolute left-[20%] top-[18%] w-[10%] h-[64%]">
-          <SparklesCore
-            id="hero-energy-left-mid"
-            background="transparent"
-            minSize={0.3}
-            maxSize={1.2}
-            particleDensity={380}
-            className="w-full h-full"
-            particleColor="#ffffff"
-            speed={0.1}
-          />
-        </div>
-        
-        {/* Left-Center Zone - Strong Curve */}
-        <div className="absolute left-[28%] top-[28%] w-[10%] h-[44%]">
-          <SparklesCore
-            id="hero-energy-left-center"
-            background="transparent"
-            minSize={0.3}
-            maxSize={1}
-            particleDensity={300}
-            className="w-full h-full"
-            particleColor="#ffffff"
-            speed={0.08}
-          />
-        </div>
-        
-        {/* Pre-Center Zone - Deep Curve */}
-        <div className="absolute left-[36%] top-[36%] w-[8%] h-[28%]">
-          <SparklesCore
-            id="hero-energy-pre-center"
-            background="transparent"
-            minSize={0.2}
-            maxSize={0.8}
-            particleDensity={200}
-            className="w-full h-full"
-            particleColor="#ffffff"
-            speed={0.06}
-          />
-        </div>
-        
-        {/* Center Zone - Narrowest Horizontal Band */}
-        <div className="absolute left-[42%] top-[46%] w-[16%] h-[8%]">
-          <SparklesCore
-            id="hero-energy-center"
-            background="transparent"
-            minSize={0.2}
-            maxSize={0.6}
-            particleDensity={80}
-            className="w-full h-full"
-            particleColor="#ffffff"
-            speed={0.05}
-          />
-        </div>
-        
-        {/* Post-Center Zone - Expanding Curve */}
-        <div className="absolute left-[56%] top-[36%] w-[8%] h-[28%]">
-          <SparklesCore
-            id="hero-energy-post-center"
-            background="transparent"
-            minSize={0.2}
-            maxSize={0.8}
-            particleDensity={200}
-            className="w-full h-full"
-            particleColor="#ffffff"
-            speed={0.06}
-          />
-        </div>
-        
-        {/* Right-Center Zone - Expanding */}
-        <div className="absolute left-[62%] top-[28%] w-[10%] h-[44%]">
-          <SparklesCore
-            id="hero-energy-right-center"
-            background="transparent"
-            minSize={0.3}
-            maxSize={1}
-            particleDensity={300}
-            className="w-full h-full"
-            particleColor="#ffffff"
-            speed={0.08}
-          />
-        </div>
-        
-        {/* Right-Mid Zone - Less Curve */}
-        <div className="absolute left-[70%] top-[18%] w-[10%] h-[64%]">
-          <SparklesCore
-            id="hero-energy-right-mid"
-            background="transparent"
-            minSize={0.3}
-            maxSize={1.2}
-            particleDensity={380}
-            className="w-full h-full"
-            particleColor="#ffffff"
-            speed={0.1}
-          />
-        </div>
-        
-        {/* Right Zone - Returning to Full */}
-        <div className="absolute left-[78%] top-[8%] w-[12%] h-[84%]">
-          <SparklesCore
-            id="hero-energy-right"
-            background="transparent"
-            minSize={0.4}
-            maxSize={1.4}
-            particleDensity={450}
-            className="w-full h-full"
-            particleColor="#ffffff"
-            speed={0.12}
-          />
-        </div>
-        
-        {/* Far Right Dense Zone - Full Screen Height */}
-        <div className="absolute right-0 top-0 w-[12%] h-[100%]">
-          <SparklesCore
-            id="hero-energy-far-right"
-            background="transparent"
-            minSize={0.4}
-            maxSize={1.5}
-            particleDensity={500}
-            className="w-full h-full"
-            particleColor="#ffffff"
-            speed={0.15}
-          />
-        </div>
-      </div>
-
       {/* Navigation */}
       <nav className="relative z-50 flex items-center justify-between p-6 lg:p-8">
-        <div className="text-2xl font-black text-white">
+        <div className="text-2xl font-black text-white fade-in-nav">
           ALTIVION
         </div>
         
         <button
-          className="flex flex-col gap-1.5 w-8 h-6 cursor-pointer group"
+          className="flex flex-col gap-1.5 w-8 h-6 cursor-pointer group fade-in-menu"
           aria-label="Menu"
         >
           <span className="block w-full h-0.5 bg-white transition-all duration-300 group-hover:bg-hud-aqua-500"></span>
@@ -186,14 +28,29 @@ const HeroSection = () => {
           {/* Main Headline */}
           <div className="mb-8">
             <h1
-              className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black leading-none mb-3 glitch-text fade-in-1"
+              className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-none mb-3 fade-in-1"
+              style={{ 
+                color: '#f3f3f3',
+                textShadow: '0 0 10px rgba(255, 255, 255, 0.4), 0 0 20px rgba(255, 255, 255, 0.2), 0 0 40px rgba(255, 255, 255, 0.1)'
+              }}
             >
               Silence Hunts
             </h1>
             <h1
-              className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black leading-none glitch-text fade-in-2"
+              className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-none glitch-text urban-drones-reveal glitch-active"
             >
-              Urban Drones
+              <span style={{animationDelay: '0.6s'}}>U</span>
+              <span style={{animationDelay: '0.9s'}}>r</span>
+              <span style={{animationDelay: '0.7s'}}>b</span>
+              <span style={{animationDelay: '0.8s'}}>a</span>
+              <span style={{animationDelay: '1.0s'}}>n</span>
+              <span style={{animationDelay: '0.75s'}}>&nbsp;</span>
+              <span style={{animationDelay: '0.85s'}}>D</span>
+              <span style={{animationDelay: '0.65s'}}>r</span>
+              <span style={{animationDelay: '0.95s'}}>o</span>
+              <span style={{animationDelay: '1.1s'}}>n</span>
+              <span style={{animationDelay: '0.6s'}}>e</span>
+              <span style={{animationDelay: '1.2s'}}>s</span>
             </h1>
           </div>
 
@@ -215,11 +72,28 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center text-gray-400 z-40">
-        <div className="w-px h-8 bg-gradient-to-b from-transparent via-hud-aqua-500 to-transparent mb-2 animate-glow-pulse"></div>
+      {/* Scroll Indicator - Centered between body text and bottom */}
+      <button 
+        className="absolute left-1/2 flex flex-col items-center text-gray-400 z-40 fade-in-scroll cursor-pointer transition-all duration-300 hover:scale-110 group"
+        style={{
+          bottom: '15%',
+          transform: 'translateX(-50%) scale(1.3)',
+          transformOrigin: 'center'
+        }}
+        onClick={() => {
+          const missionSection = document.getElementById('mission-section');
+          if (missionSection) {
+            missionSection.scrollIntoView({ behavior: 'smooth' });
+          } else {
+            // Fallback: scroll to next section
+            window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
+          }
+        }}
+        aria-label="Scroll to mission statement"
+      >
+        <div className="w-px h-8 bg-gradient-to-b from-transparent via-hud-aqua-500 to-transparent mb-2 animate-glow-pulse group-hover:via-white transition-colors duration-300"></div>
         <div
-          className="text-2xl font-light text-white"
+          className="text-2xl font-light text-white group-hover:text-hud-aqua-500 transition-colors duration-300"
           style={{
             animation: 'bounce 2s ease-in-out infinite',
             textShadow: '0 0 10px #00ffc6, 0 0 20px #00ffc6, 0 0 30px #00ffc6'
@@ -227,15 +101,10 @@ const HeroSection = () => {
         >
           ↓
         </div>
-      </div>
+      </button>
 
       {/* Custom Styles */}
       <style jsx>{`
-        @keyframes bounce {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(6px); }
-        }
-
         @keyframes fadeInUp {
           from {
             opacity: 0;
@@ -257,6 +126,65 @@ const HeroSection = () => {
 
         .fade-in-3 {
           animation: fadeInUp 1.2s ease-out 0.9s both;
+        }
+
+        .fade-in-nav {
+          animation: fadeInUp 0.8s ease-out 0.1s both;
+        }
+
+        .fade-in-menu {
+          animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .fade-in-scroll {
+          animation: fadeInUp 1.0s ease-out 1.5s both;
+        }
+
+        .urban-drones-reveal span {
+          display: inline-block;
+          opacity: 0;
+          animation: letterReveal 0.3s ease-out both;
+        }
+
+        @keyframes letterReveal {
+          0% {
+            opacity: 0;
+            transform: translateY(15px) scale(0.9) skewX(3deg);
+            filter: brightness(1.3) contrast(1.3) hue-rotate(20deg);
+            text-shadow: 
+              -1px 0 0 rgba(255, 0, 128, 0.4),
+              1px 0 0 rgba(0, 255, 198, 0.4);
+          }
+          25% {
+            opacity: 0.7;
+            transform: translateY(8px) scale(0.95) skewX(-1deg);
+            filter: brightness(1.2) contrast(1.2) hue-rotate(10deg);
+            text-shadow: 
+              -0.5px 0 0 rgba(255, 0, 128, 0.3),
+              0.5px 0 0 rgba(0, 255, 198, 0.3);
+          }
+          50% {
+            opacity: 0.9;
+            transform: translateY(3px) scale(1.02) skewX(1deg);
+            filter: brightness(1.1) contrast(1.1) hue-rotate(30deg);
+            text-shadow: 
+              -0.5px 0 0 rgba(255, 0, 128, 0.2),
+              0.5px 0 0 rgba(0, 255, 198, 0.2);
+          }
+          75% {
+            opacity: 0.95;
+            transform: translateY(1px) scale(0.99) skewX(-0.5deg);
+            filter: brightness(1.05) contrast(1.05) hue-rotate(5deg);
+            text-shadow: 
+              -0.2px 0 0 rgba(255, 0, 128, 0.1),
+              0.2px 0 0 rgba(0, 255, 198, 0.1);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0) scale(1) skewX(0deg);
+            filter: brightness(1) contrast(1) hue-rotate(0deg);
+            text-shadow: none;
+          }
         }
 
         @keyframes irregularGlitch {
@@ -389,138 +317,58 @@ const HeroSection = () => {
           }
         }
 
+        @keyframes bounce {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(6px); }
+        }
+
         .glitch-text {
           position: relative;
           color: #f3f3f3;
           overflow: hidden;
-        }
-
-        .glitch-text:nth-of-type(1) {
-          animation: 
-            enhancedChromatic 3.8s infinite linear,
-            noticeableFlicker 6.2s infinite linear;
-        }
-
-        .glitch-text:nth-of-type(2) {
           animation: 
             enhancedChromatic 3.2s infinite linear,
             noticeableFlicker 5.5s infinite linear;
         }
 
-        .glitch-text:nth-of-type(1)::before {
-          content: 'Silence Hunts';
+        .glitch-text::before {
+          content: '';
           position: absolute;
           top: -2px;
           left: -2px;
           width: calc(100% + 4px);
           height: calc(100% + 4px);
-          color: #e8e8e8;
           z-index: 1;
-          animation: irregularGlitch 4.8s infinite linear;
-          opacity: 0.8;
-          
-          /* Smooth blending with gradient mask */
-          mask: 
-            radial-gradient(ellipse at center, black 60%, transparent 90%),
-            linear-gradient(90deg, transparent 0%, black 5%, black 95%, transparent 100%);
-          mask-composite: intersect;
-          -webkit-mask: 
-            radial-gradient(ellipse at center, black 60%, transparent 90%),
-            linear-gradient(90deg, transparent 0%, black 5%, black 95%, transparent 100%);
-          -webkit-mask-composite: source-in;
-          
-          /* More visible scanlines */
-          background: repeating-linear-gradient(
-            90deg,
-            transparent,
-            transparent 2px,
-            rgba(255, 255, 255, 0.08) 2px,
-            rgba(255, 255, 255, 0.08) 3px
-          );
-          animation: irregularGlitch 5.3s infinite linear, enhancedScanlines 0.9s infinite linear;
-        }
-
-        .glitch-text:nth-of-type(1)::after {
-          content: 'Silence Hunts';
-          position: absolute;
-          top: -2px;
-          left: -2px;
-          width: calc(100% + 4px);
-          height: calc(100% + 4px);
-          color: #f0f0f0;
-          z-index: 2;
-          animation: irregularGlitch 4.1s infinite linear reverse;
-          opacity: 0.6;
-          
-          /* Smooth blending with gradient mask */
-          mask: 
-            radial-gradient(ellipse at center, black 70%, transparent 95%),
-            linear-gradient(90deg, transparent 0%, black 3%, black 97%, transparent 100%);
-          mask-composite: intersect;
-          -webkit-mask: 
-            radial-gradient(ellipse at center, black 70%, transparent 95%),
-            linear-gradient(90deg, transparent 0%, black 3%, black 97%, transparent 100%);
-          -webkit-mask-composite: source-in;
-          
-          /* Enhanced noise overlay */
-          background: 
-            repeating-linear-gradient(
-              35deg,
-              transparent,
-              transparent 1px,
-              rgba(0, 255, 198, 0.04) 1px,
-              rgba(0, 255, 198, 0.04) 2px
-            ),
-            repeating-linear-gradient(
-              -35deg,
-              transparent,
-              transparent 1px,
-              rgba(255, 0, 128, 0.03) 1px,
-              rgba(255, 0, 128, 0.03) 2px
-            );
-        }
-
-        .glitch-text:nth-of-type(2)::before {
-          content: 'Urban Drones';
-          position: absolute;
-          top: -2px;
-          left: -2px;
-          width: calc(100% + 4px);
-          height: calc(100% + 4px);
-          color: #e8e8e8;
-          z-index: 1;
-          animation: irregularGlitch 4.8s infinite linear;
-          opacity: 0.8;
-          
-          /* Smooth blending with gradient mask */
-          mask: 
-            radial-gradient(ellipse at center, black 60%, transparent 90%),
-            linear-gradient(90deg, transparent 0%, black 5%, black 95%, transparent 100%);
-          mask-composite: intersect;
-          -webkit-mask: 
-            radial-gradient(ellipse at center, black 60%, transparent 90%),
-            linear-gradient(90deg, transparent 0%, black 5%, black 95%, transparent 100%);
-          -webkit-mask-composite: source-in;
-          
-          /* More visible scanlines */
-          background: repeating-linear-gradient(
-            90deg,
-            transparent,
-            transparent 2px,
-            rgba(255, 255, 255, 0.08) 2px,
-            rgba(255, 255, 255, 0.08) 3px
-          );
           animation: irregularGlitch 4.8s infinite linear, enhancedScanlines 0.8s infinite linear;
+          opacity: 0.8;
+          
+          /* Smooth blending with gradient mask */
+          mask: 
+            radial-gradient(ellipse at center, black 60%, transparent 90%),
+            linear-gradient(90deg, transparent 0%, black 5%, black 95%, transparent 100%);
+          mask-composite: intersect;
+          -webkit-mask: 
+            radial-gradient(ellipse at center, black 60%, transparent 90%),
+            linear-gradient(90deg, transparent 0%, black 5%, black 95%, transparent 100%);
+          -webkit-mask-composite: source-in;
+          
+          /* More visible scanlines */
+          background: repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 2px,
+            rgba(255, 255, 255, 0.08) 2px,
+            rgba(255, 255, 255, 0.08) 3px
+          );
         }
 
-        .glitch-text:nth-of-type(2)::after {
-          content: 'Urban Drones';
+        .glitch-text::after {
+          content: '';
           position: absolute;
           top: -2px;
           left: -2px;
           width: calc(100% + 4px);
           height: calc(100% + 4px);
-          color: #f0f0f0;
           z-index: 2;
           animation: irregularGlitch 3.7s infinite linear reverse;
           opacity: 0.6;
@@ -551,6 +399,31 @@ const HeroSection = () => {
               rgba(255, 0, 128, 0.03) 1px,
               rgba(255, 0, 128, 0.03) 2px
             );
+        }
+
+        /* Apply glitch effects directly to the letter spans */
+        .urban-drones-reveal span {
+          display: inline-block;
+          opacity: 0;
+          animation: letterReveal 0.2s ease-out both;
+          position: relative;
+        }
+
+        .urban-drones-reveal.glitch-active span {
+          animation: 
+            letterReveal 0.2s ease-out both,
+            enhancedChromatic 3.2s infinite linear 1.3s,
+            noticeableFlicker 5.5s infinite linear 1.3s;
+        }
+
+        /* Delay retro box effects (scanlines/noise) by 1 second later */
+        .urban-drones-reveal {
+          animation-delay: 2.8s;
+        }
+
+        .urban-drones-reveal::before,
+        .urban-drones-reveal::after {
+          animation-delay: 2.8s;
         }
       `}</style>
     </div>

@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 
 const GifWorkSection = () => {
   const textRef = useRef<HTMLHeadingElement>(null);
-  const originalText = 'Making it Work';
+  const originalText = 'MAKING IT WORK';
   const chars = '!@#$%^&*()_+-=[]{}|;:,.<>?ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
   useEffect(() => {
@@ -54,15 +54,14 @@ const GifWorkSection = () => {
       <div className="absolute bottom-8 right-8 md:bottom-12 md:right-12">
         <h3 
           ref={textRef}
-          className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold leading-none"
+          className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-extrabold leading-none"
           style={{ 
             color: '#f3f3f3',
             textShadow: '0 0 10px rgba(255, 255, 255, 0.4), 0 0 20px rgba(255, 255, 255, 0.2), 0 0 40px rgba(255, 255, 255, 0.1)',
-            fontFamily: 'monospace',
-            letterSpacing: '0.02em'
+            letterSpacing: '-0.02em'
           }}
         >
-          Making it Work
+          
         </h3>
       </div>
 

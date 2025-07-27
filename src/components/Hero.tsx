@@ -1,10 +1,15 @@
 "use client";
 
 import React from 'react';
+import RadarBackground from '@/components/ui/RadarBackground';
 
 const HeroSection = () => {
   return (
     <div className="relative min-h-screen bg-raven-black overflow-hidden">
+      
+      {/* Radar Background Effect */}
+      <RadarBackground />
+      
       {/* Navigation */}
       <nav className="relative z-50 flex items-center justify-between p-6 lg:p-8">
         <div className="text-2xl font-black text-white fade-in-nav">
@@ -57,28 +62,28 @@ const HeroSection = () => {
           {/* Supporting Text */}
           <div className="max-w-2xl fade-in-3">
             <p className="text-lg lg:text-xl leading-relaxed font-semibold" style={{ color: '#808080' }}>
-              The all-new Silent Raven delivers unmatched<br />
-              detection power in an impossibly compact,<br />
-              field-ready design. The first RF system to<br />
-              achieve{' '}
+              Advanced RF detection technology optimized for urban deployment.<br />
+              We adapt proven international systems and test them in real Canadian
+              urban environments, tackling{' '}
               <span 
                 className="font-bold"
-                style={{ color: '#FFFFFF' }}
+                style={{ color: '#f3f3f3' }}
               >
-                zero acoustic signature
-              </span>.
+                practical deployment challenges.
+              </span>
             </p>
           </div>
         </div>
       </div>
 
-      {/* Scroll Indicator - Centered between body text and bottom */}
+      {/* Scroll Indicator - Perfectly Centered */}
       <button 
-        className="absolute left-1/2 flex flex-col items-center text-gray-400 z-40 fade-in-scroll cursor-pointer transition-all duration-300 hover:scale-110 group"
+        className="absolute flex flex-col items-center text-gray-400 z-40 fade-in-scroll cursor-pointer transition-all duration-300 hover:scale-110 group"
         style={{
           bottom: '15%',
+          left: '50%',
           transform: 'translateX(-50%) scale(1.3)',
-          transformOrigin: 'center'
+          transformOrigin: 'center center'
         }}
         onClick={() => {
           const missionSection = document.getElementById('mission-section');
@@ -137,7 +142,18 @@ const HeroSection = () => {
         }
 
         .fade-in-scroll {
-          animation: fadeInUp 1.0s ease-out 1.5s both;
+          animation: fadeInScroll 1.0s ease-out 1.5s both;
+        }
+
+        @keyframes fadeInScroll {
+          from {
+            opacity: 0;
+            transform: translateX(-50%) translateY(30px) scale(1.3);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0) scale(1.3);
+          }
         }
 
         .urban-drones-reveal span {

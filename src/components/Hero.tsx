@@ -1,14 +1,10 @@
 "use client";
 
 import React from 'react';
-import RadarBackground from '@/components/ui/RadarBackground';
 
 const HeroSection = () => {
   return (
     <div className="relative min-h-screen bg-raven-black overflow-hidden">
-      
-      {/* Radar Background Effect */}
-      <RadarBackground />
       
       {/* Navigation */}
       <nav className="relative z-50 flex items-center justify-between p-6 lg:p-8">

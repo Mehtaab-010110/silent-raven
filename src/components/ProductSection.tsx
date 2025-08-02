@@ -1,10 +1,11 @@
 "use client";
 
 import React from 'react';
+import Image from 'next/image';
 
 const ProductSection = () => {
   return (
-    <section className="h-screen relative overflow-hidden" style={{backgroundColor: '#F3F3F3'}}>
+    <section className="h-screen relative overflow-hidden" style={{backgroundColor: '#DCDCDC'}}>
       
       {/* Main Content Container */}
       <div className="absolute inset-0 flex items-center justify-center px-6 lg:px-8">
@@ -12,34 +13,39 @@ const ProductSection = () => {
           
           <div className="grid lg:grid-cols-2 gap-16 items-center h-full">
             
-            {/* Left Side - 3D Model Placeholder */}
-            <div className="flex items-center justify-center">
-              <div 
-                className="w-full max-w-md h-96 lg:h-[500px] flex items-center justify-center fade-in-left"
-                style={{backgroundColor: '#4A4A4A'}}
-              >
-                <h3 className="text-2xl md:text-3xl font-bold text-white">
-                  3d model
-                </h3>
+            {/* Left Side - Product Image */}
+            <div className="flex items-center justify-center fade-in-left">
+              <div className="relative w-full max-w-md h-96 lg:h-[500px]">
+                <Image
+                  src="/public/ProductPhoto.png"
+                  alt="Silent Raven Counter-UAS Detection System"
+                  fill
+                  className="object-contain"
+                  priority
+                />
               </div>
             </div>
             
             {/* Right Side - Content */}
             <div className="flex flex-col justify-center fade-in-right">
+              
+              {/* Heading */}
               <h2 
-                className="text-3xl md:text-4xl lg:text-4xl font-medium leading-tight mb-8"
+                className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-8"
                 style={{color: '#202020'}}
               >
-                Silent Raven
+                Heading
               </h2>
-              <p
+              
+              {/* Body Text */}
+              <p 
                 className="text-lg lg:text-xl leading-relaxed font-medium"
                 style={{color: '#202020'}}
               >
-                Handheld RF-based drone detection device providing 2-3km detection range
-                in urban environments.The 580g portable unit features real-time UAV tracking,
-                pilot location identification, and multi-drone monitoring across 70MHz-6GHz
-                spectrum with 4+ hour battery life and touchscreen interface.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                sed do eiusmod tempor incididunt ut labore et dolore magna 
+                aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
+                ullamco
               </p>
               
             </div>
@@ -83,4 +89,5 @@ const ProductSection = () => {
     </section>
   );
 };
+
 export default ProductSection;

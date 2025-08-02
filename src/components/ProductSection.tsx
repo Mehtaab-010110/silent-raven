@@ -1,7 +1,6 @@
 "use client";
 
 import React from 'react';
-import Image from 'next/image';
 
 const ProductSection = () => {
   return (
@@ -13,16 +12,15 @@ const ProductSection = () => {
           
           <div className="grid lg:grid-cols-2 gap-16 items-center h-full">
             
-            {/* Left Side - Product Image */}
-            <div className="flex items-center justify-center fade-in-left">
-              <div className="relative w-full max-w-md h-96 lg:h-[500px]">
-                <Image
-                  src="/public/ProductPhoto.png"
-                  alt="Silent Raven Counter-UAS Detection System"
-                  fill
-                  className="object-contain"
-                  priority
-                />
+            {/* Left Side - 3D Model Placeholder */}
+            <div className="flex items-center justify-center">
+              <div 
+                className="w-full max-w-md h-96 lg:h-[500px] flex items-center justify-center fade-in-left"
+                style={{backgroundColor: '#4A4A4A'}}
+              >
+                <h3 className="text-2xl md:text-3xl font-bold text-white">
+                  3d model
+                </h3>
               </div>
             </div>
             

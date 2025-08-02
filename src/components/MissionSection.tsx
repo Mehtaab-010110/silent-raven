@@ -1,70 +1,84 @@
 "use client";
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 
 const MissionSection = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const bgRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!sectionRef.current || !bgRef.current) return;
+
+      const section = sectionRef.current;
+      const bg = bgRef.current;
+      const rect = section.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+
+      // Calculate scroll progress when section is in view
+      const scrollProgress = Math.max(0, Math.min(1, 
+        (windowHeight - rect.top) / (windowHeight + rect.height)
+      ));
+
+      // Classic parallax - background moves slower than scroll
+      const parallaxSpeed = 0.5; // Adjust this for parallax intensity (0.5 = half speed)
+      const scrollOffset = window.pageYOffset;
+      const sectionTop = section.offsetTop;
+      const parallaxY = (scrollOffset - sectionTop) * parallaxSpeed;
+
+      // Zoom effect based on scroll progress
+      const scale = 1 + (scrollProgress * 0.2); // Scale from 1 to 1.2
+
+      // Apply both parallax and zoom transforms
+      bg.style.setProperty('--scroll-scale', scale.toString());
+      bg.style.setProperty('--parallax-y', `${parallaxY}px`);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial call
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <section id="mission-section" className="h-[50vh] relative overflow-hidden" style={{backgroundColor: '#f3f3f3'}}>
+    <section ref={sectionRef} id="mission-section" className="h-[75vh] relative overflow-hidden" style={{backgroundColor: '#202020'}}>
       
-      {/* Content Container - Centered within the half-height section */}
-      <div className="absolute inset-0 flex items-center justify-center px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto w-full">
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
-            {/* Left Half - Headlines */}
-            <div className="flex flex-col justify-start">
-              <h2 className="text-2xl md:text-2xl lg:text-3xl xl:text-4xl font-bold leading-tight" style={{color: '#2B2B2B'}}>
-                <span className="block mb-1 fade-in-word" style={{animationDelay: '0.2s'}}>
-                  Proven Tech.
-                </span>
-                <span className="block mb-1 fade-in-word glow-text" style={{animationDelay: '0.3s'}}>
-                  Real Testing.
-                </span>
-                <span className="block fade-in-word" style={{animationDelay: '0.4s'}}>
-                  Practical Results.
-                </span>
-              </h2>
-            </div>
-            
-            {/* Right Half - Body Text */}
-            <div className="flex flex-col justify-center">
-              {/* Divider Line */}
-              <div className="w-20 h-px bg-black mb-8 fade-in-up" style={{animationDelay: '0.6s'}}></div>
-              
-              {/* Body Text - Matching Landing Page Style */}
-              <p className="text-lg lg:text-xl leading-relaxed font-semibold fade-in-up" style={{color: '#424242', animationDelay: '0.6s'}}>
-                To deliver counter-UAS detection systems that perform in<br />
-                <span className="font-bold" style={{color: '#202020'}}>real urban environments</span>{' '}
-                through practical adaptation and<br />
-                rigorous field testing.
-              </p>
-            </div>
+      {/* Parallax Background with Scroll Zoom */}
+      <div 
+        ref={bgRef}
+        className="absolute inset-0 parallax-bg scroll-zoom"
+        style={{
+          backgroundImage: `url('/downtown.jpg')`,
+          backgroundSize: '120%', // Larger than container for parallax effect
+          backgroundPosition: 'center center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      ></div>
+      
+      {/* Content Container - Top Left Positioned */}
+      <div className="absolute inset-0 flex items-start justify-start px-12 py-16 lg:px-16 lg:py-20 z-10">
+        <div className="max-w-md">
+          
+          {/* Left-aligned Headlines */}
+          <div>
+            <h2 className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-extrabold leading-tight uppercase text-left" style={{color: '#ffffff', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 8px rgba(0, 0, 0, 0.6)'}}>
+              <span className="block mb-1 fade-in-word" style={{animationDelay: '0.2s'}}>
+                Proven Tech.
+              </span>
+              <span className="block mb-1 fade-in-word" style={{animationDelay: '0.4s'}}>
+                Real Testing.
+              </span>
+              <span className="block fade-in-word" style={{animationDelay: '0.6s'}}>
+                Practical Results.
+              </span>
+            </h2>
           </div>
+          
         </div>
       </div>
       
-      {/* Subtle Background Pattern */}
-      <div className="absolute inset-0 opacity-10 pointer-events-none">
-        <div className="w-full h-full" style={{
-          backgroundImage: `radial-gradient(circle at 25% 25%, #202020 1px, transparent 1px),
-                            radial-gradient(circle at 75% 75%, #202020 1px, transparent 1px)`,
-          backgroundSize: '120px 120px',
-          backgroundPosition: '0 0, 60px 60px'
-        }}></div>
-      </div>
-
       {/* Custom Styles */}
       <style jsx>{`
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
         @keyframes fadeInWord {
           from {
             opacity: 0;
@@ -76,20 +90,26 @@ const MissionSection = () => {
           }
         }
 
-        .fade-in-up {
-          animation: fadeInUp 0.8s ease-out both;
-        }
-
         .fade-in-word {
           animation: fadeInWord 0.6s ease-out both;
         }
 
-        .glow-text {
-          color: #00cc9d;
-          text-shadow: 
-            0 0 8px rgba(0, 255, 198, 0.25),
-            0 0 16px rgba(0, 255, 198, 0.15),
-            0 0 24px rgba(0, 255, 198, 0.1);
+        .parallax-bg {
+          transform: translateZ(0);
+          will-change: transform;
+          transition: transform 0.1s ease-out;
+        }
+
+        /* Scroll-driven parallax - only moves when scrolling */
+        @media (prefers-reduced-motion: no-preference) {
+          .parallax-bg {
+            transform-origin: center center;
+          }
+        }
+
+        /* JavaScript controls this via custom properties */
+        .scroll-zoom {
+          transform: scale(var(--scroll-scale, 1)) translateY(var(--parallax-y, 0px));
         }
       `}</style>
     </section>

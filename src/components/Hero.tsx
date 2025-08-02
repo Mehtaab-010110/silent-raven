@@ -16,9 +16,9 @@ const HeroSection = () => {
           className="flex flex-col gap-1.5 w-8 h-6 cursor-pointer group fade-in-menu"
           aria-label="Menu"
         >
-          <span className="block w-full h-0.5 bg-white transition-all duration-300 group-hover:bg-hud-aqua-500"></span>
-          <span className="block w-full h-0.5 bg-white transition-all duration-300 group-hover:bg-hud-aqua-500"></span>
-          <span className="block w-full h-0.5 bg-white transition-all duration-300 group-hover:bg-hud-aqua-500"></span>
+          <span className="block w-full h-0.5 bg-white transition-all duration-300 group-hover:bg-gray-300"></span>
+          <span className="block w-full h-0.5 bg-white transition-all duration-300 group-hover:bg-gray-300"></span>
+          <span className="block w-full h-0.5 bg-white transition-all duration-300 group-hover:bg-gray-300"></span>
         </button>
       </nav>
 
@@ -92,12 +92,11 @@ const HeroSection = () => {
         }}
         aria-label="Scroll to mission statement"
       >
-        <div className="w-px h-8 bg-gradient-to-b from-transparent via-hud-aqua-500 to-transparent mb-2 animate-glow-pulse group-hover:via-white transition-colors duration-300"></div>
+        <div className="w-px h-8 bg-gradient-to-b from-transparent via-white to-transparent mb-2 group-hover:via-gray-300 transition-colors duration-300"></div>
         <div
-          className="text-2xl font-light text-white group-hover:text-hud-aqua-500 transition-colors duration-300"
+          className="text-2xl font-light text-white group-hover:text-gray-300 transition-colors duration-300"
           style={{
-            animation: 'bounce 2s ease-in-out infinite',
-            textShadow: '0 0 10px #00ffc6, 0 0 20px #00ffc6, 0 0 30px #00ffc6'
+            animation: 'bounce 2s ease-in-out infinite'
           }}
         >
           ↓
@@ -162,39 +161,39 @@ const HeroSection = () => {
           0% {
             opacity: 0;
             transform: translateY(15px) scale(0.9) skewX(3deg);
-            filter: brightness(1.3) contrast(1.3) hue-rotate(20deg);
+            filter: brightness(1.3) contrast(1.3);
             text-shadow: 
-              -1px 0 0 rgba(255, 0, 128, 0.4),
-              1px 0 0 rgba(0, 255, 198, 0.4);
+              -1px 0 0 rgba(255, 255, 255, 0.4),
+              1px 0 0 rgba(128, 128, 128, 0.4);
           }
           25% {
             opacity: 0.7;
             transform: translateY(8px) scale(0.95) skewX(-1deg);
-            filter: brightness(1.2) contrast(1.2) hue-rotate(10deg);
+            filter: brightness(1.2) contrast(1.2);
             text-shadow: 
-              -0.5px 0 0 rgba(255, 0, 128, 0.3),
-              0.5px 0 0 rgba(0, 255, 198, 0.3);
+              -0.5px 0 0 rgba(255, 255, 255, 0.3),
+              0.5px 0 0 rgba(128, 128, 128, 0.3);
           }
           50% {
             opacity: 0.9;
             transform: translateY(3px) scale(1.02) skewX(1deg);
-            filter: brightness(1.1) contrast(1.1) hue-rotate(30deg);
+            filter: brightness(1.1) contrast(1.1);
             text-shadow: 
-              -0.5px 0 0 rgba(255, 0, 128, 0.2),
-              0.5px 0 0 rgba(0, 255, 198, 0.2);
+              -0.5px 0 0 rgba(255, 255, 255, 0.2),
+              0.5px 0 0 rgba(128, 128, 128, 0.2);
           }
           75% {
             opacity: 0.95;
             transform: translateY(1px) scale(0.99) skewX(-0.5deg);
-            filter: brightness(1.05) contrast(1.05) hue-rotate(5deg);
+            filter: brightness(1.05) contrast(1.05);
             text-shadow: 
-              -0.2px 0 0 rgba(255, 0, 128, 0.1),
-              0.2px 0 0 rgba(0, 255, 198, 0.1);
+              -0.2px 0 0 rgba(255, 255, 255, 0.1),
+              0.2px 0 0 rgba(128, 128, 128, 0.1);
           }
           100% {
             opacity: 1;
             transform: translateY(0) scale(1) skewX(0deg);
-            filter: brightness(1) contrast(1) hue-rotate(0deg);
+            filter: brightness(1) contrast(1);
             text-shadow: none;
           }
         }
@@ -255,24 +254,24 @@ const HeroSection = () => {
           0%, 80%, 100% {
             text-shadow: 
               0 0 10px rgba(243, 243, 243, 0.2),
-              0 0 20px rgba(0, 255, 198, 0.1);
+              0 0 20px rgba(255, 255, 255, 0.1);
           }
           3%, 7%, 12%, 18% {
             text-shadow: 
-              -2px 0 0 rgba(255, 0, 128, 0.4),
-              2px 0 0 rgba(0, 255, 198, 0.4),
+              -2px 0 0 rgba(255, 255, 255, 0.4),
+              2px 0 0 rgba(128, 128, 128, 0.4),
               0 0 15px rgba(243, 243, 243, 0.25);
           }
           20%, 25%, 30% {
             text-shadow: 
-              1px 0 0 rgba(255, 0, 128, 0.35),
-              -1px 0 0 rgba(0, 255, 198, 0.35),
+              1px 0 0 rgba(255, 255, 255, 0.35),
+              -1px 0 0 rgba(128, 128, 128, 0.35),
               0 0 18px rgba(243, 243, 243, 0.25);
           }
           60%, 65%, 70% {
             text-shadow: 
-              -1.5px 0 0 rgba(255, 0, 128, 0.5),
-              1.5px 0 0 rgba(0, 255, 198, 0.5),
+              -1.5px 0 0 rgba(255, 255, 255, 0.5),
+              1.5px 0 0 rgba(128, 128, 128, 0.5),
               0 0 20px rgba(243, 243, 243, 0.25);
           }
         }
@@ -401,15 +400,15 @@ const HeroSection = () => {
               35deg,
               transparent,
               transparent 1px,
-              rgba(0, 255, 198, 0.04) 1px,
-              rgba(0, 255, 198, 0.04) 2px
+              rgba(255, 255, 255, 0.04) 1px,
+              rgba(255, 255, 255, 0.04) 2px
             ),
             repeating-linear-gradient(
               -35deg,
               transparent,
               transparent 1px,
-              rgba(255, 0, 128, 0.03) 1px,
-              rgba(255, 0, 128, 0.03) 2px
+              rgba(128, 128, 128, 0.03) 1px,
+              rgba(128, 128, 128, 0.03) 2px
             );
         }
 

@@ -16,22 +16,6 @@ const HeroSection = () => {
           backgroundRepeat: 'no-repeat'
         }}
       />
-      
-      {/* Navigation */}
-      <nav className="relative z-50 flex items-center justify-between p-6 lg:p-8">
-        <div className="text-2xl font-black text-white fade-in-nav">
-          ALTIVION
-        </div>
-        
-        <button
-          className="flex flex-col gap-1.5 w-8 h-6 cursor-pointer group fade-in-menu"
-          aria-label="Menu"
-        >
-          <span className="block w-full h-0.5 bg-white transition-all duration-300 group-hover:bg-gray-300"></span>
-          <span className="block w-full h-0.5 bg-white transition-all duration-300 group-hover:bg-gray-300"></span>
-          <span className="block w-full h-0.5 bg-white transition-all duration-300 group-hover:bg-gray-300"></span>
-        </button>
-      </nav>
 
       {/* Main Content - Centered */}
       <div className="absolute inset-0 flex items-center justify-center z-30">
@@ -121,8 +105,6 @@ const HeroSection = () => {
           opacity: 0;
         }
 
-        .fade-in-nav,
-        .fade-in-menu,
         .fade-in-1,
         .fade-in-3,
         .fade-in-scroll {
@@ -181,14 +163,6 @@ const HeroSection = () => {
 
         .fade-in-3 {
           animation: fadeInUp 1.2s ease-out 0.9s both;
-        }
-
-        .fade-in-nav {
-          animation: fadeInUp 0.8s ease-out 0.1s both;
-        }
-
-        .fade-in-menu {
-          animation: fadeInUp 0.8s ease-out 0.2s both;
         }
 
         .fade-in-scroll {

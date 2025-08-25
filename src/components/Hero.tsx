@@ -116,6 +116,29 @@ const HeroSection = () => {
 
       {/* Custom Styles */}
       <style jsx>{`
+        /* Initial Hidden States - Prevent Flash */
+        .bg-fade-in {
+          opacity: 0;
+        }
+
+        .fade-in-nav,
+        .fade-in-menu,
+        .fade-in-1,
+        .fade-in-3,
+        .fade-in-scroll {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+
+        .fade-in-scroll {
+          transform: translateX(-50%) translateY(30px) scale(1.3);
+        }
+
+        .urban-drones-reveal span {
+          opacity: 0;
+        }
+
+        /* Animation Definitions */
         @keyframes fadeInUp {
           from {
             opacity: 0;
@@ -136,17 +159,24 @@ const HeroSection = () => {
           }
         }
 
+        @keyframes fadeInScroll {
+          from {
+            opacity: 0;
+            transform: translateX(-50%) translateY(30px) scale(1.3);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0) scale(1.3);
+          }
+        }
+
+        /* Applied Animations */
         .bg-fade-in {
-          opacity: 0;
           animation: backgroundFadeIn 3s ease-out 0.5s both;
         }
 
         .fade-in-1 {
           animation: fadeInUp 1.2s ease-out 0.3s both;
-        }
-
-        .fade-in-2 {
-          animation: fadeInUp 1.2s ease-out 0.6s both;
         }
 
         .fade-in-3 {
@@ -163,17 +193,6 @@ const HeroSection = () => {
 
         .fade-in-scroll {
           animation: fadeInScroll 1.0s ease-out 1.5s both;
-        }
-
-        @keyframes fadeInScroll {
-          from {
-            opacity: 0;
-            transform: translateX(-50%) translateY(30px) scale(1.3);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(-50%) translateY(0) scale(1.3);
-          }
         }
 
         .urban-drones-reveal span {

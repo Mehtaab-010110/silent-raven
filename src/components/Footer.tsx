@@ -4,154 +4,166 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="relative bg-black border-t border-gray-800">
-      
-      {/* Main Footer Content */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+    <footer className="bg-black relative overflow-hidden">
+      {/* Subtle Background Pattern */}
+      <div className="absolute inset-0 opacity-[0.015]">
+        <div 
+          className="w-full h-full"
+          style={{
+            backgroundImage: `radial-gradient(circle at 2px 2px, rgba(255,255,255,0.3) 1px, transparent 0)`,
+            backgroundSize: '60px 60px'
+          }}
+        />
+      </div>
+
+      {/* Subtle aquatic accent line at top */}
+      <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-32 h-px bg-gradient-to-r from-transparent via-cyan-400/20 to-transparent"></div>
+
+      <div className="relative z-10 container mx-auto px-6 lg:px-12 py-16">
+        
+        {/* Main Footer Content */}
+        <div className="grid md:grid-cols-3 gap-12 items-start">
           
           {/* Company Info */}
-          <div className="md:col-span-2 fade-in-up">
+          <div className="space-y-4">
             <h3 
-              className="text-3xl font-black mb-4"
-              style={{color: '#f3f3f3'}}
+              className="text-white font-black text-2xl"
+              style={{ letterSpacing: '-0.02em' }}
             >
               ALTIVION
             </h3>
-            <p className="text-lg mb-6 max-w-md" style={{color: '#808080'}}>
-              Advanced counter-UAS detection systems.<br />
-              Built for the field. Proven in action.
+            <p 
+              className="text-gray-400 text-sm leading-relaxed max-w-xs"
+              style={{ lineHeight: '1.6' }}
+            >
+              Advanced RF detection technology for urban counter-drone operations.
             </p>
-            <div className="flex space-x-8">
-              <a 
-                href="mailto:info@altivion.com"
-                className="text-lg hover:text-aqua transition-colors"
-                style={{color: '#808080'}}
-              >
-                info@altivion.com
-              </a>
-              <a 
-                href="mailto:defense@altivion.com"
-                className="text-lg hover:text-aqua transition-colors"
-                style={{color: '#808080'}}
-              >
-                defense@altivion.com
-              </a>
-            </div>
           </div>
-          
-          {/* Navigation */}
-          <div className="fade-in-up" style={{animationDelay: '0.2s'}}>
-            <h4 className="text-lg font-bold mb-6" style={{color: '#f3f3f3'}}>
+
+          {/* Navigation Links */}
+          <div className="space-y-4">
+            <h4 className="text-white font-semibold text-sm uppercase tracking-wider">
               Navigation
             </h4>
-            <nav className="space-y-3">
+            <nav className="space-y-2">
               <a 
-                href="#home"
-                className="block text-lg hover:text-aqua transition-colors"
-                style={{color: '#808080'}}
-              >
-                Home
-              </a>
-              <a 
-                href="#mission"
-                className="block text-lg hover:text-aqua transition-colors"
-                style={{color: '#808080'}}
-              >
-                Mission
-              </a>
-              <a 
-                href="#product"
-                className="block text-lg hover:text-aqua transition-colors"
-                style={{color: '#808080'}}
+                href="#product-section" 
+                className="footer-link block text-gray-400 text-sm hover:text-white transition-colors duration-300"
               >
                 Product
               </a>
               <a 
-                href="#contact"
-                className="block text-lg hover:text-aqua transition-colors"
-                style={{color: '#808080'}}
+                href="#contact-section" 
+                className="footer-link block text-gray-400 text-sm hover:text-white transition-colors duration-300"
               >
                 Contact
               </a>
+              <a 
+                href="#" 
+                className="footer-link block text-gray-400 text-sm hover:text-white transition-colors duration-300"
+              >
+                Documentation
+              </a>
             </nav>
           </div>
-          
-          {/* Product */}
-          <div className="fade-in-up" style={{animationDelay: '0.4s'}}>
-            <h4 className="text-lg font-bold mb-6" style={{color: '#f3f3f3'}}>
-              Silent Raven
+
+          {/* Contact Info */}
+          <div className="space-y-4">
+            <h4 className="text-white font-semibold text-sm uppercase tracking-wider">
+              Connect
             </h4>
-            <div className="space-y-3">
-              <p className="text-lg" style={{color: '#808080'}}>
-                Counter-UAS Detection
+            <div className="space-y-2 text-sm">
+              <p className="text-gray-400">
+                <span className="text-white font-medium">Email:</span> info@altivion.tech
               </p>
-              <p className="text-lg" style={{color: '#808080'}}>
-                RF Analysis System
-              </p>
-              <p className="text-lg" style={{color: '#808080'}}>
-                Zero Acoustic Signature
+              <p className="text-gray-400">
+                <span className="text-white font-medium">Location:</span> Canada
               </p>
             </div>
+            
+            {/* CUAS Badge */}
+            <div className="flex items-center gap-2 mt-6">
+              <div className="w-4 h-px bg-gradient-to-r from-cyan-400/40 to-transparent"></div>
+              <span 
+                className="text-cyan-400/70 font-medium text-xs tracking-wider"
+              >
+                CUAS SANDBOX 2025
+              </span>
+            </div>
           </div>
-          
         </div>
-      </div>
-      
-      {/* Bottom Bar */}
-      <div className="border-t border-gray-800">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+
+        {/* Bottom Section */}
+        <div className="mt-12 pt-8 border-t border-gray-800">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             
             {/* Copyright */}
-            <p className="text-lg" style={{color: '#808080'}}>
+            <p className="text-gray-500 text-xs">
               © 2025 Altivion Technologies. All rights reserved.
             </p>
-            
-            {/* Location */}
-            <div className="flex items-center space-x-2">
-              <div 
-                className="w-2 h-2 rounded-full"
-                style={{backgroundColor: '#00ffc6'}}
-              ></div>
-              <p className="text-lg" style={{color: '#808080'}}>
-                Calgary, Alberta, Canada
-              </p>
+
+            {/* Links */}
+            <div className="flex items-center gap-6">
+              <a 
+                href="#" 
+                className="text-gray-500 text-xs hover:text-gray-300 transition-colors duration-300"
+              >
+                Privacy Policy
+              </a>
+              <a 
+                href="#" 
+                className="text-gray-500 text-xs hover:text-gray-300 transition-colors duration-300"
+              >
+                Terms of Service
+              </a>
             </div>
-            
           </div>
         </div>
-      </div>
-      
-      {/* Subtle Grid Pattern */}
-      <div className="absolute inset-0 opacity-5 pointer-events-none">
-        <div className="w-full h-full" style={{
-          backgroundImage: `radial-gradient(circle at 25% 25%, #00ffc6 1px, transparent 1px),
-                            radial-gradient(circle at 75% 75%, #00ffc6 1px, transparent 1px)`,
-          backgroundSize: '100px 100px',
-          backgroundPosition: '0 0, 50px 50px'
-        }}></div>
       </div>
 
       {/* Custom Styles */}
       <style jsx>{`
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
+        .footer-link {
+          position: relative;
         }
 
-        .fade-in-up {
-          animation: fadeInUp 0.6s ease-out both;
+        .footer-link::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          bottom: -2px;
+          width: 0;
+          height: 1px;
+          background: linear-gradient(90deg, rgba(0, 255, 255, 0.6), transparent);
+          transition: width 0.3s ease;
         }
 
-        .hover\\:text-aqua:hover {
-          color: #00ffc6 !important;
+        .footer-link:hover::before {
+          width: 100%;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+          .container {
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+          }
+          
+          .grid {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+          }
+          
+          .flex-col {
+            text-align: center;
+          }
+          
+          .md\\:flex-row {
+            flex-direction: column;
+            gap: 1rem;
+          }
         }
       `}</style>
     </footer>

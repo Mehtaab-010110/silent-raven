@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from 'react';
 
 const ProductPage = () => {
   const sectionRef = useRef<HTMLElement>(null);
-  const [hasAnimated, setHasAnimated] = useState(true);
+  const [hasAnimated, setHasAnimated] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,7 +41,7 @@ const ProductPage = () => {
           
           {/* Bold Futuristic Headline */}
           <h1 
-            className="headline font-black text-white mb-8"
+            className={`headline font-black text-white mb-8 ${hasAnimated ? 'animate-in-1' : ''}`}
             style={{
               fontSize: 'clamp(3rem, 5.5vw, 5.5rem)',
               lineHeight: '0.9',
@@ -53,7 +53,7 @@ const ProductPage = () => {
           </h1>
           
           {/* Concise Body Text */}
-          <div className="body-text mb-8">
+          <div className={`body-text mb-12 ${hasAnimated ? 'animate-in-2' : ''}`}>
             <p 
               className="text-gray-300 leading-relaxed"
               style={{
@@ -62,13 +62,13 @@ const ProductPage = () => {
               }}
             >
               Built for urban environments where detection requires precision.<br/>
-              Selected for Canada's CUAS Sandbox 2025 testing program.<br/>
-              Engineered to deliver uncompromising performance when it matters most.
+              Selected for Canada&apos;s CUAS Sandbox 2025 testing program.<br/>
+              Engineered to deliver uncompromising performance when it matters.
             </p>
           </div>
 
           {/* CUAS Badge */}
-          <div className="mb-12 flex items-center gap-3">
+          <div className={`cuas-badge mb-12 flex items-center gap-3 ${hasAnimated ? 'animate-in-3' : ''}`}>
             <div className="w-6 h-px bg-gradient-to-r from-cyan-400/40 to-transparent"></div>
             <span 
               className="text-cyan-400/70 font-medium tracking-wider"
@@ -79,7 +79,7 @@ const ProductPage = () => {
           </div>
 
           {/* Three-Column Feature Grid */}
-          <div className="features-grid grid grid-cols-3 gap-8">
+          <div className={`features-grid grid grid-cols-3 gap-8 ${hasAnimated ? 'animate-in-4' : ''}`}>
             
             {/* Feature 1 */}
             <div className="feature-item">
@@ -159,7 +159,7 @@ const ProductPage = () => {
           <div className="absolute inset-0 bg-gradient-radial from-cyan-400/3 via-transparent to-transparent"></div>
           
           {/* Device Image */}
-          <div className="device-container relative">
+          <div className={`device-container relative ${hasAnimated ? 'animate-in-5' : ''}`}>
             <img 
               src="/Device.png" 
               alt="SilentRaven RF Detection Device"
@@ -291,24 +291,35 @@ const ProductPage = () => {
           }
         }
 
-        /* Animation enhancements */
-        .headline,
-        .body-text,
-        .features-grid,
-        .device-container {
+        /* Initial hidden states */
+        .headline:not(.animate-in-1),
+        .body-text:not(.animate-in-2),
+        .cuas-badge:not(.animate-in-3),
+        .features-grid:not(.animate-in-4),
+        .device-container:not(.animate-in-5) {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+
+        /* Animation classes */
+        .animate-in-1 {
           animation: fadeInUp 1s ease-out both;
         }
 
-        .body-text {
-          animation-delay: 0.2s;
+        .animate-in-2 {
+          animation: fadeInUp 1s ease-out 0.2s both;
         }
 
-        .features-grid {
-          animation-delay: 0.4s;
+        .animate-in-3 {
+          animation: fadeInUp 1s ease-out 0.4s both;
         }
 
-        .device-container {
-          animation-delay: 0.6s;
+        .animate-in-4 {
+          animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .animate-in-5 {
+          animation: fadeInUp 1s ease-out 0.8s both;
         }
 
         @keyframes fadeInUp {

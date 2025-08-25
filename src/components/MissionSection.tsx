@@ -129,7 +129,7 @@ const MissionSection = () => {
               lineHeight: '1.4'
             }}
           >
-            Robust field testing throughout Canada's <br /> <span style={{fontWeight: '800'}}>real urban environments</span>.
+            Robust field testing throughout Canada&apos;s <br /> <span style={{fontWeight: '800'}}>real urban environments</span>.
           </p>
         </div>
       </div>

@@ -1,11 +1,8 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 
 const ContactSection = () => {
-  const [formData, setFormData] = useState({
-    requestDemo: false
-  });
   const sectionRef = useRef<HTMLElement>(null);
   const [hasAnimated, setHasAnimated] = useState(false);
 
@@ -27,18 +24,6 @@ const ContactSection = () => {
     
     return () => window.removeEventListener('scroll', handleScroll);
   }, [hasAnimated]);
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const target = e.target;
-    const { name, type } = target;
-    
-    if (type === 'checkbox' && 'checked' in target) {
-      setFormData(prev => ({
-        ...prev,
-        [name]: target.checked
-      }));
-    }
-  };
 
   return (
     <section 
@@ -105,7 +90,10 @@ const ContactSection = () => {
 
               <button 
                 className="demo-btn group"
-                onClick={() => setFormData(prev => ({ ...prev, requestDemo: true }))}
+                onClick={() => {
+                  // Handle demo request - could integrate with form service
+                  console.log('Demo request submitted');
+                }}
               >
                 <span>SCHEDULE DEMO</span>
                 <div className="demo-btn-icon">
@@ -198,57 +186,6 @@ const ContactSection = () => {
           font-size: 0.95rem;
           line-height: 1.6;
           margin-bottom: 2rem;
-        }
-
-        .demo-form-group {
-          margin-bottom: 1.5rem;
-        }
-
-        /* Checkbox Styles */
-        .checkbox-container {
-          display: flex;
-          align-items: flex-start;
-          gap: 0.75rem;
-          cursor: pointer;
-          margin-bottom: 1.5rem;
-        }
-
-        .demo-checkbox {
-          display: none;
-        }
-
-        .checkmark {
-          width: 18px;
-          height: 18px;
-          border: 1px solid rgba(0, 0, 0, 0.3);
-          border-radius: 2px;
-          background: rgba(0, 0, 0, 0.05);
-          position: relative;
-          flex-shrink: 0;
-          transition: all 0.3s ease;
-        }
-
-        .demo-checkbox:checked + .checkmark {
-          background: rgba(0, 0, 0, 0.1);
-          border-color: rgba(0, 0, 0, 0.5);
-        }
-
-        .demo-checkbox:checked + .checkmark::after {
-          content: '';
-          position: absolute;
-          left: 5px;
-          top: 2px;
-          width: 4px;
-          height: 8px;
-          border: solid #1a1a1a;
-          border-width: 0 2px 2px 0;
-          transform: rotate(45deg);
-        }
-
-        .checkbox-label {
-          color: #666666;
-          font-size: 0.85rem;
-          line-height: 1.4;
         }
 
         /* Demo Button */

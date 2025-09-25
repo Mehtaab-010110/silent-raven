@@ -74,7 +74,7 @@ const Footer = () => {
             </h4>
             <div className="space-y-2 text-sm">
               <p className="text-gray-400">
-                <span className="text-white font-medium">Email:</span> info@altivion.tech
+                <span className="text-white font-medium">Email:</span> info@altivion.ca
               </p>
               <p className="text-gray-400">
                 <span className="text-white font-medium">Location:</span> Canada

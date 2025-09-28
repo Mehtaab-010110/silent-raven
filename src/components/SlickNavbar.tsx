@@ -35,7 +35,7 @@ const SlickNavbar = () => {
             
             {/* Logo */}
             <div className="flex-shrink-0">
-              <div 
+              <div
                 className="text-2xl font-black text-white cursor-pointer group"
                 onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               >

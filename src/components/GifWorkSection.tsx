@@ -9,7 +9,7 @@ const GifWorkSection = () => {
       {/* GIF Container */}
       <div className="w-full h-full flex items-center justify-center">
         <img
-          src="/Altivion_GIF.gif"
+          src="/clip.gif"
           alt="Altivion team working on counter-UAS technology"
           className="w-full h-full object-cover"
           style={{

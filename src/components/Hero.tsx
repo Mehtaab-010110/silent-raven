@@ -16,15 +16,31 @@ const HeroSection = () => {
           backgroundRepeat: 'no-repeat'
         }}
       />
+      
+      {/* Navigation */}
+      <nav className="relative z-50 flex items-center justify-between p-4 sm:p-6 lg:p-8">
+        <div className="text-xl sm:text-2xl font-black text-white fade-in-nav">
+          ALTIVION
+        </div>
+        
+        <button
+          className="flex flex-col gap-1.5 w-7 h-5 sm:w-8 sm:h-6 cursor-pointer group fade-in-menu"
+          aria-label="Menu"
+        >
+          <span className="block w-full h-0.5 bg-white transition-all duration-300 group-hover:bg-gray-300"></span>
+          <span className="block w-full h-0.5 bg-white transition-all duration-300 group-hover:bg-gray-300"></span>
+          <span className="block w-full h-0.5 bg-white transition-all duration-300 group-hover:bg-gray-300"></span>
+        </button>
+      </nav>
 
       {/* Main Content - Centered */}
-      <div className="absolute inset-0 flex items-center justify-center z-30">
-        <div className="flex flex-col items-center justify-center text-center">
+      <div className="absolute inset-0 flex items-center justify-center z-30 px-4 sm:px-6">
+        <div className="flex flex-col items-center justify-center text-center w-full max-w-5xl">
           
           {/* Main Headline */}
-          <div className="mb-8">
+          <div className="mb-6 sm:mb-8">
             <h1
-              className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-none mb-3 fade-in-1"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-none mb-2 sm:mb-3 fade-in-1"
               style={{ 
                 color: '#f3f3f3',
                 textShadow: '0 0 10px rgba(255, 255, 255, 0.4), 0 0 20px rgba(255, 255, 255, 0.2), 0 0 40px rgba(255, 255, 255, 0.1)'
@@ -33,7 +49,7 @@ const HeroSection = () => {
               Silence Hunts
             </h1>
             <h1
-              className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-none glitch-text urban-drones-reveal glitch-active"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-none glitch-text urban-drones-reveal glitch-active"
             >
               <span style={{animationDelay: '0.6s'}}>U</span>
               <span style={{animationDelay: '0.9s'}}>r</span>
@@ -51,10 +67,10 @@ const HeroSection = () => {
           </div>
 
           {/* Supporting Text */}
-          <div className="max-w-2xl fade-in-3">
-            <p className="text-lg lg:text-xl leading-relaxed font-semibold" style={{ color: '#808080' }}>
-              Advanced RF detection technology optimized for urban deployment.<br />
-              We adapt proven international systems and test them in real Canadian
+          <div className="max-w-2xl fade-in-3 px-4">
+            <p className="text-base sm:text-lg lg:text-xl leading-relaxed font-semibold" style={{ color: '#808080' }}>
+              Advanced RF detection technology optimized for urban deployment.<br className="hidden sm:block" />
+              <span className="sm:inline"> </span>We adapt proven international systems and test them in real Canadian
               urban environments, tackling{' '}
               <span 
                 className="font-bold"
@@ -67,29 +83,27 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Scroll Indicator - Perfectly Centered */}
+      {/* Scroll Indicator */}
       <button 
         className="absolute flex flex-col items-center text-gray-400 z-40 fade-in-scroll cursor-pointer transition-all duration-300 hover:scale-110 group"
         style={{
-          bottom: '15%',
+          bottom: '10vh',
           left: '50%',
-          transform: 'translateX(-50%) scale(1.3)',
-          transformOrigin: 'center center'
+          transform: 'translateX(-50%)',
         }}
         onClick={() => {
           const missionSection = document.getElementById('mission-section');
           if (missionSection) {
             missionSection.scrollIntoView({ behavior: 'smooth' });
           } else {
-            // Fallback: scroll to next section
             window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
           }
         }}
         aria-label="Scroll to mission statement"
       >
-        <div className="w-px h-8 bg-gradient-to-b from-transparent via-white to-transparent mb-2 group-hover:via-gray-300 transition-colors duration-300"></div>
+        <div className="w-px h-6 sm:h-8 bg-gradient-to-b from-transparent via-white to-transparent mb-2 group-hover:via-gray-300 transition-colors duration-300"></div>
         <div
-          className="text-2xl font-light text-white group-hover:text-gray-300 transition-colors duration-300"
+          className="text-xl sm:text-2xl font-light text-white group-hover:text-gray-300 transition-colors duration-300"
           style={{
             animation: 'bounce 2s ease-in-out infinite'
           }}
@@ -100,27 +114,6 @@ const HeroSection = () => {
 
       {/* Custom Styles */}
       <style jsx>{`
-        /* Initial Hidden States - Prevent Flash */
-        .bg-fade-in {
-          opacity: 0;
-        }
-
-        .fade-in-1,
-        .fade-in-3,
-        .fade-in-scroll {
-          opacity: 0;
-          transform: translateY(30px);
-        }
-
-        .fade-in-scroll {
-          transform: translateX(-50%) translateY(30px) scale(1.3);
-        }
-
-        .urban-drones-reveal span {
-          opacity: 0;
-        }
-
-        /* Animation Definitions */
         @keyframes fadeInUp {
           from {
             opacity: 0;
@@ -141,19 +134,8 @@ const HeroSection = () => {
           }
         }
 
-        @keyframes fadeInScroll {
-          from {
-            opacity: 0;
-            transform: translateX(-50%) translateY(30px) scale(1.3);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(-50%) translateY(0) scale(1.3);
-          }
-        }
-
-        /* Applied Animations */
         .bg-fade-in {
+          opacity: 0;
           animation: backgroundFadeIn 3s ease-out 0.5s both;
         }
 
@@ -161,12 +143,35 @@ const HeroSection = () => {
           animation: fadeInUp 1.2s ease-out 0.3s both;
         }
 
+        .fade-in-2 {
+          animation: fadeInUp 1.2s ease-out 0.6s both;
+        }
+
         .fade-in-3 {
           animation: fadeInUp 1.2s ease-out 0.9s both;
         }
 
+        .fade-in-nav {
+          animation: fadeInUp 0.8s ease-out 0.1s both;
+        }
+
+        .fade-in-menu {
+          animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
         .fade-in-scroll {
           animation: fadeInScroll 1.0s ease-out 1.5s both;
+        }
+
+        @keyframes fadeInScroll {
+          from {
+            opacity: 0;
+            transform: translateX(-50%) translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+          }
         }
 
         .urban-drones-reveal span {
@@ -337,15 +342,6 @@ const HeroSection = () => {
           }
         }
 
-        @keyframes enhancedScanlines {
-          0% {
-            background-position: 0 0;
-          }
-          100% {
-            background-position: 0 12px;
-          }
-        }
-
         @keyframes bounce {
           0%, 100% { transform: translateY(0); }
           50% { transform: translateY(6px); }
@@ -368,10 +364,8 @@ const HeroSection = () => {
           width: calc(100% + 4px);
           height: calc(100% + 4px);
           z-index: 1;
-          animation: irregularGlitch 4.8s infinite linear, enhancedScanlines 0.8s infinite linear;
+          animation: irregularGlitch 4.8s infinite linear;
           opacity: 0.8;
-          
-          /* Smooth blending with gradient mask */
           mask: 
             radial-gradient(ellipse at center, black 60%, transparent 90%),
             linear-gradient(90deg, transparent 0%, black 5%, black 95%, transparent 100%);
@@ -380,8 +374,6 @@ const HeroSection = () => {
             radial-gradient(ellipse at center, black 60%, transparent 90%),
             linear-gradient(90deg, transparent 0%, black 5%, black 95%, transparent 100%);
           -webkit-mask-composite: source-in;
-          
-          /* More visible scanlines */
           background: repeating-linear-gradient(
             90deg,
             transparent,
@@ -401,8 +393,6 @@ const HeroSection = () => {
           z-index: 2;
           animation: irregularGlitch 3.7s infinite linear reverse;
           opacity: 0.6;
-          
-          /* Smooth blending with gradient mask */
           mask: 
             radial-gradient(ellipse at center, black 70%, transparent 95%),
             linear-gradient(90deg, transparent 0%, black 3%, black 97%, transparent 100%);
@@ -411,8 +401,6 @@ const HeroSection = () => {
             radial-gradient(ellipse at center, black 70%, transparent 95%),
             linear-gradient(90deg, transparent 0%, black 3%, black 97%, transparent 100%);
           -webkit-mask-composite: source-in;
-          
-          /* Enhanced noise overlay */
           background: 
             repeating-linear-gradient(
               35deg,
@@ -430,7 +418,6 @@ const HeroSection = () => {
             );
         }
 
-        /* Apply glitch effects directly to the letter spans */
         .urban-drones-reveal span {
           display: inline-block;
           opacity: 0;
@@ -445,7 +432,6 @@ const HeroSection = () => {
             noticeableFlicker 5.5s infinite linear 1.3s;
         }
 
-        /* Delay retro box effects (scanlines/noise) by 1 second later */
         .urban-drones-reveal {
           animation-delay: 2.8s;
         }
@@ -453,6 +439,21 @@ const HeroSection = () => {
         .urban-drones-reveal::before,
         .urban-drones-reveal::after {
           animation-delay: 2.8s;
+        }
+
+        /* Mobile specific optimizations */
+        @media (max-width: 640px) {
+          .glitch-text::before,
+          .glitch-text::after {
+            opacity: 0.5;
+          }
+        }
+
+        /* Tablet adjustments */
+        @media (min-width: 641px) and (max-width: 1024px) {
+          .fade-in-scroll {
+            bottom: 8vh;
+          }
         }
       `}</style>
     </div>

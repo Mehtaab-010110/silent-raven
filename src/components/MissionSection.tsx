@@ -18,43 +18,28 @@ const MissionSection = () => {
       const rect = section.getBoundingClientRect();
       const windowHeight = window.innerHeight;
 
-      // Check if section is in view (when top of section hits 80% of viewport)
       const isInView = rect.top <= windowHeight * 0.8;
 
-      // Trigger animation only once when section comes into view
       if (isInView && !hasAnimated) {
         setHasAnimated(true);
-        
-        // Add animation classes
         bg.classList.add('animate-in');
         text.classList.add('animate-in');
       }
 
-      // Only continue with scroll effects if section has been animated
       if (!hasAnimated) return;
 
-      // Calculate scroll progress (0 when section enters, 1 when section exits)
       const scrollProgress = Math.max(0, Math.min(1, 
         (windowHeight - rect.top) / (windowHeight + rect.height)
       ));
 
-      // Background zoom: 120% → 100% (reverse scale for zoom out effect)
       const bgScale = 1.2 - (scrollProgress * 0.2);
-      
-      // Parallax: reveal image from bottom to top
-      const parallaxY = scrollProgress * 20; // Subtle upward movement
-      
-      // Text scale: 100% → 120%
+      const parallaxY = scrollProgress * 20;
       const textScale = 1 + (scrollProgress * 0.2);
 
-      // Apply background transform
       bg.style.transform = `scale(${bgScale}) translateY(${parallaxY}px)`;
-      
-      // Apply text transform
       text.style.transform = `scale(${textScale})`;
     };
 
-    // Use throttled scroll for performance
     let ticking = false;
     const onScroll = () => {
       if (!ticking) {
@@ -67,7 +52,7 @@ const MissionSection = () => {
     };
 
     window.addEventListener('scroll', onScroll, { passive: true });
-    handleScroll(); // Initial call
+    handleScroll();
 
     return () => window.removeEventListener('scroll', onScroll);
   }, [hasAnimated]);
@@ -76,7 +61,7 @@ const MissionSection = () => {
     <section 
       ref={sectionRef} 
       id="mission-section" 
-      className="h-[70vh] relative overflow-hidden"
+      className="min-h-[60vh] sm:min-h-[70vh] relative overflow-hidden"
     >
       
       {/* Full-screen Parallax Background */}
@@ -89,12 +74,12 @@ const MissionSection = () => {
           backgroundPosition: 'center center',
           backgroundRepeat: 'no-repeat',
           willChange: 'transform',
-          backfaceVisibility: 'hidden' // Prevent flicker
+          backfaceVisibility: 'hidden'
         }}
       />
       
       {/* Centered Text Block */}
-      <div className="absolute inset-0 flex items-center justify-center z-10">
+      <div className="absolute inset-0 flex items-center justify-center z-10 px-4 sm:px-6">
         <div 
           ref={textRef}
           className="text-center text-fade-in"
@@ -106,7 +91,7 @@ const MissionSection = () => {
           <h2 
             className="font-black leading-none uppercase select-none"
             style={{
-              fontSize: 'clamp(1.2rem, 3.2vw, 2.4rem)',
+              fontSize: 'clamp(1.2rem, 4vw, 2.4rem)',
               color: '#000000',
               textShadow: '2px 2px 4px rgba(255, 255, 255, 0.3), 0 0 8px rgba(255, 255, 255, 0.2)',
               fontWeight: '900',
@@ -122,7 +107,7 @@ const MissionSection = () => {
           <p 
             className="fade-in-subtitle mt-2 select-none"
             style={{
-              fontSize: 'clamp(0.7rem, 1.4vw, 1rem)',
+              fontSize: 'clamp(0.65rem, 1.8vw, 1rem)',
               color: '#333333',
               fontWeight: '600',
               letterSpacing: '0.05em',
@@ -135,12 +120,12 @@ const MissionSection = () => {
       </div>
       
       {/* Learn More Link */}
-      <div className="absolute bottom-8 right-8 z-20">
+      <div className="absolute bottom-4 sm:bottom-8 right-4 sm:right-8 z-20">
         <a 
           href="#next-section" 
           className="learn-more-link group flex items-center gap-2 text-white/90 hover:text-white transition-all duration-300 ease-in-out"
         >
-          <span className="text-sm font-light tracking-wide uppercase">Learn More</span>
+          <span className="text-xs sm:text-sm font-light tracking-wide uppercase">Learn More</span>
           <div className="arrow-container">
             <svg 
               width="16" 
@@ -163,7 +148,6 @@ const MissionSection = () => {
       
       {/* Custom Styles */}
       <style jsx>{`
-        /* Initial states - hidden */
         .bg-fade-in {
           opacity: 0;
           transform: scale(1.1) translateY(30px);
@@ -186,7 +170,6 @@ const MissionSection = () => {
           transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
 
-        /* Animated states */
         .bg-fade-in.animate-in {
           opacity: 1;
           transform: scale(1.2) translateY(0);
@@ -199,19 +182,18 @@ const MissionSection = () => {
         .text-fade-in.animate-in .fade-in-word {
           opacity: 1;
           transform: translateY(0);
-          transition-delay: 0.4s; /* Delay text after background */
+          transition-delay: 0.4s;
         }
 
         .text-fade-in.animate-in .fade-in-subtitle {
           opacity: 1;
           transform: translateY(0);
-          transition-delay: 0.7s; /* Delay subtitle after main title */
+          transition-delay: 0.7s;
         }
 
-        /* Learn More Link Styles */
         .learn-more-link {
           position: relative;
-          padding: 12px 16px;
+          padding: 10px 14px;
           border-radius: 2px;
           backdrop-filter: blur(8px);
           background: rgba(255, 255, 255, 0.15);
@@ -252,51 +234,21 @@ const MissionSection = () => {
           justify-content: flex-start;
         }
 
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-          .learn-more-link {
-            bottom: 20px !important;
-            right: 20px !important;
-            padding: 10px 14px;
-          }
-          
-          .learn-more-link span {
-            font-size: 0.75rem;
-          }
-        }
-
-        /* Performance optimizations */
         section {
           transform: translateZ(0);
         }
 
-        /* Responsive font sizing */
-        @media (max-width: 640px) {
-          h2 {
-            font-size: clamp(1rem, 4.5vw, 1.6rem) !important;
-          }
-          
-          .fade-in-subtitle {
-            font-size: clamp(0.6rem, 2vw, 0.8rem) !important;
-          }
-        }
-
-        @media (min-width: 1024px) {
-          h2 {
-            font-size: clamp(1.6rem, 3.2vw, 3.2rem) !important;
-          }
-          
-          .fade-in-subtitle {
-            font-size: clamp(0.8rem, 1.4vw, 1.1rem) !important;
-          }
-        }
-
-        /* Prevent text selection flickering during animations */
         .select-none {
           -webkit-user-select: none;
           -moz-user-select: none;
           -ms-user-select: none;
           user-select: none;
+        }
+
+        @media (max-width: 640px) {
+          .learn-more-link {
+            padding: 8px 12px;
+          }
         }
       `}</style>
     </section>

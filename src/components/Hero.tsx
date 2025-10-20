@@ -16,25 +16,9 @@ const HeroSection = () => {
           backgroundRepeat: 'no-repeat'
         }}
       />
-      
-      {/* Navigation */}
-      <nav className="relative z-50 flex items-center justify-between p-4 sm:p-6 lg:p-8">
-        <div className="text-xl sm:text-2xl font-black text-white fade-in-nav">
-          ALTIVION
-        </div>
-        
-        <button
-          className="flex flex-col gap-1.5 w-7 h-5 sm:w-8 sm:h-6 cursor-pointer group fade-in-menu"
-          aria-label="Menu"
-        >
-          <span className="block w-full h-0.5 bg-white transition-all duration-300 group-hover:bg-gray-300"></span>
-          <span className="block w-full h-0.5 bg-white transition-all duration-300 group-hover:bg-gray-300"></span>
-          <span className="block w-full h-0.5 bg-white transition-all duration-300 group-hover:bg-gray-300"></span>
-        </button>
-      </nav>
 
       {/* Main Content - Centered */}
-      <div className="absolute inset-0 flex items-center justify-center z-30 px-4 sm:px-6">
+      <div className="absolute inset-0 flex items-center justify-center z-30 px-4 sm:px-6 md:px-8">
         <div className="flex flex-col items-center justify-center text-center w-full max-w-5xl">
           
           {/* Main Headline */}
@@ -67,10 +51,12 @@ const HeroSection = () => {
           </div>
 
           {/* Supporting Text */}
-          <div className="max-w-2xl fade-in-3 px-4">
-            <p className="text-base sm:text-lg lg:text-xl leading-relaxed font-semibold" style={{ color: '#808080' }}>
-              Advanced RF detection technology optimized for urban deployment.<br className="hidden sm:block" />
-              <span className="sm:inline"> </span>We adapt proven international systems and test them in real Canadian
+          <div className="max-w-2xl fade-in-3 px-2 sm:px-4">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed font-semibold" style={{ color: '#808080' }}>
+              Advanced RF detection technology optimized for urban deployment.
+              <br className="hidden sm:block" />
+              <span className="sm:inline"> </span>
+              We adapt proven international systems and test them in real Canadian
               urban environments, tackling{' '}
               <span 
                 className="font-bold"
@@ -87,7 +73,7 @@ const HeroSection = () => {
       <button 
         className="absolute flex flex-col items-center text-gray-400 z-40 fade-in-scroll cursor-pointer transition-all duration-300 hover:scale-110 group"
         style={{
-          bottom: '10vh',
+          bottom: '8vh',
           left: '50%',
           transform: 'translateX(-50%)',
         }}
@@ -114,6 +100,25 @@ const HeroSection = () => {
 
       {/* Custom Styles */}
       <style jsx>{`
+        .bg-fade-in {
+          opacity: 0;
+        }
+
+        .fade-in-1,
+        .fade-in-3,
+        .fade-in-scroll {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+
+        .fade-in-scroll {
+          transform: translateX(-50%) translateY(30px);
+        }
+
+        .urban-drones-reveal span {
+          opacity: 0;
+        }
+
         @keyframes fadeInUp {
           from {
             opacity: 0;
@@ -134,35 +139,6 @@ const HeroSection = () => {
           }
         }
 
-        .bg-fade-in {
-          opacity: 0;
-          animation: backgroundFadeIn 3s ease-out 0.5s both;
-        }
-
-        .fade-in-1 {
-          animation: fadeInUp 1.2s ease-out 0.3s both;
-        }
-
-        .fade-in-2 {
-          animation: fadeInUp 1.2s ease-out 0.6s both;
-        }
-
-        .fade-in-3 {
-          animation: fadeInUp 1.2s ease-out 0.9s both;
-        }
-
-        .fade-in-nav {
-          animation: fadeInUp 0.8s ease-out 0.1s both;
-        }
-
-        .fade-in-menu {
-          animation: fadeInUp 0.8s ease-out 0.2s both;
-        }
-
-        .fade-in-scroll {
-          animation: fadeInScroll 1.0s ease-out 1.5s both;
-        }
-
         @keyframes fadeInScroll {
           from {
             opacity: 0;
@@ -172,6 +148,22 @@ const HeroSection = () => {
             opacity: 1;
             transform: translateX(-50%) translateY(0);
           }
+        }
+
+        .bg-fade-in {
+          animation: backgroundFadeIn 3s ease-out 0.5s both;
+        }
+
+        .fade-in-1 {
+          animation: fadeInUp 1.2s ease-out 0.3s both;
+        }
+
+        .fade-in-3 {
+          animation: fadeInUp 1.2s ease-out 0.9s both;
+        }
+
+        .fade-in-scroll {
+          animation: fadeInScroll 1.0s ease-out 1.5s both;
         }
 
         .urban-drones-reveal span {
@@ -226,51 +218,21 @@ const HeroSection = () => {
             transform: translate(0);
             filter: none;
           }
-          2% {
-            transform: translate(-2px, 0);
-          }
-          4% {
-            transform: translate(2px, -1px);
-          }
-          6% {
-            transform: translate(-1px, 1px);
-          }
-          14% {
-            transform: translate(-2px, 1px);
-          }
-          16% {
-            transform: translate(1px, -2px);
-          }
-          27% {
-            transform: translate(2px, 0);
-          }
-          29% {
-            transform: translate(0, -2px);
-          }
-          42% {
-            transform: translate(-1px, -1px);
-          }
-          44% {
-            transform: translate(1px, 2px);
-          }
-          57% {
-            transform: translate(-2px, 0);
-          }
-          59% {
-            transform: translate(2px, 1px);
-          }
-          72% {
-            transform: translate(1px, -1px);
-          }
-          74% {
-            transform: translate(-1px, 2px);
-          }
-          87% {
-            transform: translate(0, 1px);
-          }
-          89% {
-            transform: translate(-2px, -1px);
-          }
+          2% { transform: translate(-2px, 0); }
+          4% { transform: translate(2px, -1px); }
+          6% { transform: translate(-1px, 1px); }
+          14% { transform: translate(-2px, 1px); }
+          16% { transform: translate(1px, -2px); }
+          27% { transform: translate(2px, 0); }
+          29% { transform: translate(0, -2px); }
+          42% { transform: translate(-1px, -1px); }
+          44% { transform: translate(1px, 2px); }
+          57% { transform: translate(-2px, 0); }
+          59% { transform: translate(2px, 1px); }
+          72% { transform: translate(1px, -1px); }
+          74% { transform: translate(-1px, 2px); }
+          87% { transform: translate(0, 1px); }
+          89% { transform: translate(-2px, -1px); }
         }
 
         @keyframes enhancedChromatic {
@@ -304,42 +266,15 @@ const HeroSection = () => {
             opacity: 1;
             filter: brightness(1);
           }
-          89% {
-            opacity: 0.6;
-            filter: brightness(1.3) contrast(1.4);
-          }
-          90% {
-            opacity: 0.8;
-            filter: brightness(0.7) contrast(1.2);
-          }
-          91% {
-            opacity: 0.9;
-            filter: brightness(1.1) contrast(0.9);
-          }
-          93% {
-            opacity: 0.7;
-            filter: brightness(1.2) contrast(1.3);
-          }
-          94% {
-            opacity: 0.85;
-            filter: brightness(0.8) contrast(1.1);
-          }
-          95% {
-            opacity: 0.95;
-            filter: brightness(1.05) contrast(1.05);
-          }
-          97% {
-            opacity: 0.75;
-            filter: brightness(1.25) contrast(1.35);
-          }
-          98% {
-            opacity: 0.9;
-            filter: brightness(0.9) contrast(1.15);
-          }
-          99% {
-            opacity: 0.95;
-            filter: brightness(1.1) contrast(1.1);
-          }
+          89% { opacity: 0.6; filter: brightness(1.3) contrast(1.4); }
+          90% { opacity: 0.8; filter: brightness(0.7) contrast(1.2); }
+          91% { opacity: 0.9; filter: brightness(1.1) contrast(0.9); }
+          93% { opacity: 0.7; filter: brightness(1.2) contrast(1.3); }
+          94% { opacity: 0.85; filter: brightness(0.8) contrast(1.1); }
+          95% { opacity: 0.95; filter: brightness(1.05) contrast(1.05); }
+          97% { opacity: 0.75; filter: brightness(1.25) contrast(1.35); }
+          98% { opacity: 0.9; filter: brightness(0.9) contrast(1.15); }
+          99% { opacity: 0.95; filter: brightness(1.1) contrast(1.1); }
         }
 
         @keyframes bounce {
@@ -441,18 +376,10 @@ const HeroSection = () => {
           animation-delay: 2.8s;
         }
 
-        /* Mobile specific optimizations */
         @media (max-width: 640px) {
           .glitch-text::before,
           .glitch-text::after {
-            opacity: 0.5;
-          }
-        }
-
-        /* Tablet adjustments */
-        @media (min-width: 641px) and (max-width: 1024px) {
-          .fade-in-scroll {
-            bottom: 8vh;
+            opacity: 0.4;
           }
         }
       `}</style>

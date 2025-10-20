@@ -13,14 +13,13 @@ const ContactSection = () => {
       const rect = sectionRef.current.getBoundingClientRect();
       const windowHeight = window.innerHeight;
       
-      // Trigger animations when section is 70% in view (more conservative)
       if (rect.top <= windowHeight * 0.7 && !hasAnimated) {
         setHasAnimated(true);
       }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // Check initial position
+    handleScroll();
     
     return () => window.removeEventListener('scroll', handleScroll);
   }, [hasAnimated]);
@@ -42,42 +41,44 @@ const ContactSection = () => {
         />
       </div>
 
-      <div className="relative z-10 container mx-auto px-6 lg:px-8 pt-32 pb-20">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-32 pb-16 sm:pb-20">
         
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-12 sm:mb-16">
           <h2 
-            className={`section-title font-bold mb-8 ${hasAnimated ? 'fade-in-1' : ''}`}
+            className={`section-title font-bold mb-6 sm:mb-8 ${hasAnimated ? 'fade-in-1' : ''}`}
             style={{
-              fontSize: 'clamp(1.5rem, 4vw, 2.8rem)',
+              fontSize: 'clamp(1.8rem, 5vw, 2.8rem)',
               color: '#1a1a1a',
               letterSpacing: '-0.02em',
-              lineHeight: '0.9'
+              lineHeight: '0.95'
             }}
           >
             Get in Touch
           </h2>
           <div className={`animated-line mx-auto ${hasAnimated ? 'fade-in-2' : ''}`}></div>
           <p 
-            className={`section-description mt-6 ${hasAnimated ? 'fade-in-3' : ''}`}
+            className={`section-description mt-4 sm:mt-6 px-4 ${hasAnimated ? 'fade-in-3' : ''}`}
             style={{
-              fontSize: 'clamp(0.9rem, 1.2vw, 1.1rem)',
+              fontSize: 'clamp(0.85rem, 1.5vw, 1.1rem)',
               color: '#666666',
               maxWidth: '600px',
               margin: '1.5rem auto 0'
             }}
           >
             Ready to deploy proven RF detection technology in your urban environment? 
-            <br />Contact our team for <span className="text-black font-semibold">technical consultation</span> and field demonstrations.
+            <br className="hidden sm:block" />
+            <span className="sm:inline"> </span>
+            Contact our team for <span className="text-black font-semibold">technical consultation</span> and field demonstrations.
           </p>
         </div>
 
         {/* Centered Demo Section */}
-        <div className="max-w-2xl mx-auto">
+        <div className="max-w-2xl mx-auto px-4">
           <div className="demo-section">
             <div className={`demo-container ${hasAnimated ? 'fade-in-4' : ''}`}>
               <h3 
-                className="text-2xl font-bold text-black mb-4"
+                className="text-xl sm:text-2xl font-bold text-black mb-3 sm:mb-4"
                 style={{ letterSpacing: '0.02em' }}
               >
                 REQUEST DEMO
@@ -91,7 +92,6 @@ const ContactSection = () => {
               <button 
                 className="demo-btn group"
                 onClick={() => {
-                  // Handle demo request - could integrate with form service
                   console.log('Demo request submitted');
                 }}
               >
@@ -121,7 +121,6 @@ const ContactSection = () => {
 
       {/* Custom Styles */}
       <style jsx>{`
-        /* Animation Classes - Only animate when classes are applied */
         .fade-in-1 { 
           animation: fadeInUp 1.0s ease-out 0.2s both; 
         }
@@ -135,7 +134,6 @@ const ContactSection = () => {
           animation: fadeInUp 1.0s ease-out 0.8s both; 
         }
 
-        /* Initial hidden states */
         .section-title:not(.fade-in-1),
         .animated-line:not(.fade-in-2),
         .section-description:not(.fade-in-3),
@@ -164,7 +162,6 @@ const ContactSection = () => {
           }
         }
 
-        /* Animated Line */
         .animated-line {
           height: 1px;
           width: 30px;
@@ -172,35 +169,45 @@ const ContactSection = () => {
           position: relative;
         }
 
-        /* Demo Section */
         .demo-container {
           background: linear-gradient(135deg, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.01) 100%);
           border: 1px solid rgba(0, 0, 0, 0.1);
           border-radius: 4px;
-          padding: 2rem;
+          padding: 1.5rem;
           backdrop-filter: blur(10px);
+        }
+
+        @media (min-width: 640px) {
+          .demo-container {
+            padding: 2rem;
+          }
         }
 
         .demo-description {
           color: #666666;
-          font-size: 0.95rem;
+          font-size: clamp(0.85rem, 1.2vw, 0.95rem);
           line-height: 1.6;
-          margin-bottom: 2rem;
+          margin-bottom: 1.5rem;
         }
 
-        /* Demo Button */
+        @media (min-width: 640px) {
+          .demo-description {
+            margin-bottom: 2rem;
+          }
+        }
+
         .demo-btn {
           display: flex;
           align-items: center;
           justify-content: center;
           gap: 0.75rem;
-          padding: 1rem 1.5rem;
+          padding: 0.875rem 1.25rem;
           background: transparent;
           border: 2px solid rgba(0, 0, 0, 0.2);
           border-radius: 2px;
           color: #1a1a1a;
           font-weight: 600;
-          font-size: 0.9rem;
+          font-size: clamp(0.8rem, 1.2vw, 0.9rem);
           letter-spacing: 0.05em;
           text-transform: uppercase;
           cursor: pointer;
@@ -208,33 +215,16 @@ const ContactSection = () => {
           width: 100%;
         }
 
+        @media (min-width: 640px) {
+          .demo-btn {
+            padding: 1rem 1.5rem;
+          }
+        }
+
         .demo-btn:hover {
           border-color: rgba(0, 0, 0, 0.4);
           background: rgba(0, 0, 0, 0.05);
           transform: translateY(-1px);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 1024px) {
-          .container {
-            padding-left: 1.5rem;
-            padding-right: 1.5rem;
-          }
-        }
-
-        @media (max-width: 768px) {
-          .container {
-            padding-left: 1rem;
-            padding-right: 1rem;
-          }
-          
-          .demo-container {
-            padding: 1.5rem;
-          }
-          
-          .section-title {
-            font-size: clamp(1.5rem, 8vw, 2.5rem) !important;
-          }
         }
       `}</style>
     </section>

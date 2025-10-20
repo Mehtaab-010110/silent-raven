@@ -27,24 +27,24 @@ const ProductPage = () => {
   return (
     <section 
       ref={sectionRef}
-      className="min-h-screen bg-black relative overflow-hidden"
+      className="min-h-screen bg-black relative overflow-hidden py-12 md:py-0"
       id="product-section"
     >
-      {/* Subtle aquatic accent elements */}
+      {/* Subtle accent elements */}
       <div className="absolute top-1/4 left-0 w-24 h-px bg-gradient-to-r from-transparent via-cyan-400/20 to-transparent"></div>
       <div className="absolute bottom-1/3 right-1/4 w-32 h-px bg-gradient-to-l from-transparent via-cyan-400/15 to-transparent"></div>
 
-      <div className="relative z-10 h-screen flex">
+      <div className="relative z-10 min-h-screen flex flex-col md:flex-row">
         
         {/* Left Content Area */}
-        <div className="w-1/2 flex flex-col justify-center px-12 lg:px-16">
+        <div className="w-full md:w-1/2 flex flex-col justify-center px-6 sm:px-8 md:px-12 lg:px-16 py-8 md:py-0">
           
-          {/* Bold Futuristic Headline */}
+          {/* Bold Headline */}
           <h1 
-            className={`headline font-black text-white mb-8 ${hasAnimated ? 'animate-in-1' : ''}`}
+            className={`headline font-black text-white mb-6 sm:mb-8 ${hasAnimated ? 'animate-in-1' : ''}`}
             style={{
-              fontSize: 'clamp(3rem, 5.5vw, 5.5rem)',
-              lineHeight: '0.9',
+              fontSize: 'clamp(2rem, 8vw, 5.5rem)',
+              lineHeight: '0.95',
               letterSpacing: '-0.03em'
             }}
           >
@@ -52,12 +52,12 @@ const ProductPage = () => {
             Undetected.
           </h1>
           
-          {/* Concise Body Text */}
-          <div className={`body-text mb-12 ${hasAnimated ? 'animate-in-2' : ''}`}>
+          {/* Body Text */}
+          <div className={`body-text mb-8 sm:mb-12 ${hasAnimated ? 'animate-in-2' : ''}`}>
             <p 
               className="text-gray-300 leading-relaxed"
               style={{
-                fontSize: 'clamp(1.1rem, 1.3vw, 1.4rem)',
+                fontSize: 'clamp(0.95rem, 1.8vw, 1.4rem)',
                 lineHeight: '1.6'
               }}
             >
@@ -68,25 +68,25 @@ const ProductPage = () => {
           </div>
 
           {/* CUAS Badge */}
-          <div className={`cuas-badge mb-12 flex items-center gap-3 ${hasAnimated ? 'animate-in-3' : ''}`}>
+          <div className={`cuas-badge mb-8 sm:mb-12 flex items-center gap-3 ${hasAnimated ? 'animate-in-3' : ''}`}>
             <div className="w-6 h-px bg-gradient-to-r from-cyan-400/40 to-transparent"></div>
             <span 
               className="text-cyan-400/70 font-medium tracking-wider"
-              style={{ fontSize: 'clamp(0.7rem, 0.8vw, 0.9rem)' }}
+              style={{ fontSize: 'clamp(0.65rem, 1.2vw, 0.9rem)' }}
             >
               CUAS SANDBOX 2025 • OTTAWA
             </span>
           </div>
 
           {/* Three-Column Feature Grid */}
-          <div className={`features-grid grid grid-cols-3 gap-8 ${hasAnimated ? 'animate-in-4' : ''}`}>
+          <div className={`features-grid grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 ${hasAnimated ? 'animate-in-4' : ''}`}>
             
             {/* Feature 1 */}
             <div className="feature-item">
               <div 
                 className="stat font-black text-white mb-2"
                 style={{
-                  fontSize: 'clamp(1.8rem, 2.2vw, 2.4rem)',
+                  fontSize: 'clamp(1.8rem, 3vw, 2.4rem)',
                   letterSpacing: '-0.02em'
                 }}
               >
@@ -95,7 +95,7 @@ const ProductPage = () => {
               <div 
                 className="subtitle text-gray-400 font-light"
                 style={{
-                  fontSize: 'clamp(0.8rem, 0.9vw, 1rem)',
+                  fontSize: 'clamp(0.8rem, 1.2vw, 1rem)',
                   letterSpacing: '0.05em'
                 }}
               >
@@ -109,7 +109,7 @@ const ProductPage = () => {
               <div 
                 className="stat font-black text-white mb-2"
                 style={{
-                  fontSize: 'clamp(1.8rem, 2.2vw, 2.4rem)',
+                  fontSize: 'clamp(1.8rem, 3vw, 2.4rem)',
                   letterSpacing: '-0.02em'
                 }}
               >
@@ -118,7 +118,7 @@ const ProductPage = () => {
               <div 
                 className="subtitle text-gray-400 font-light"
                 style={{
-                  fontSize: 'clamp(0.8rem, 0.9vw, 1rem)',
+                  fontSize: 'clamp(0.8rem, 1.2vw, 1rem)',
                   letterSpacing: '0.05em'
                 }}
               >
@@ -132,7 +132,7 @@ const ProductPage = () => {
               <div 
                 className="stat font-black text-white mb-2"
                 style={{
-                  fontSize: 'clamp(1.8rem, 2.2vw, 2.4rem)',
+                  fontSize: 'clamp(1.8rem, 3vw, 2.4rem)',
                   letterSpacing: '-0.02em'
                 }}
               >
@@ -141,7 +141,7 @@ const ProductPage = () => {
               <div 
                 className="subtitle text-gray-400 font-light"
                 style={{
-                  fontSize: 'clamp(0.8rem, 0.9vw, 1rem)',
+                  fontSize: 'clamp(0.8rem, 1.2vw, 1rem)',
                   letterSpacing: '0.05em'
                 }}
               >
@@ -153,7 +153,7 @@ const ProductPage = () => {
         </div>
 
         {/* Right Device Area */}
-        <div className="w-1/2 relative flex items-end justify-center">
+        <div className="w-full md:w-1/2 relative flex items-end justify-center mt-8 md:mt-0 pb-8 md:pb-0">
           
           {/* Subtle Background Glow */}
           <div className="absolute inset-0 bg-gradient-radial from-cyan-400/3 via-transparent to-transparent"></div>
@@ -165,7 +165,8 @@ const ProductPage = () => {
               alt="SilentRaven RF Detection Device"
               className="w-auto object-contain object-bottom filter drop-shadow-2xl"
               style={{
-                height: '80vh',
+                height: 'clamp(300px, 60vh, 80vh)',
+                maxWidth: '90vw',
                 filter: 'drop-shadow(0 0 40px rgba(0, 255, 255, 0.1))'
               }}
             />
@@ -175,12 +176,10 @@ const ProductPage = () => {
 
       {/* Custom Styles */}
       <style jsx>{`
-        /* Radial gradient utility */
         .bg-gradient-radial {
           background: radial-gradient(circle at center, var(--tw-gradient-stops));
         }
 
-        /* Typography refinements */
         .headline {
           text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
         }
@@ -193,7 +192,6 @@ const ProductPage = () => {
           text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
         }
 
-        /* Hover effects for features */
         .feature-item {
           transition: all 0.3s ease;
           padding: 1rem;
@@ -214,7 +212,6 @@ const ProductPage = () => {
           color: rgba(0, 255, 255, 0.6);
         }
 
-        /* Device hover effect */
         .device-container {
           transition: transform 0.6s ease;
           position: relative;
@@ -245,53 +242,6 @@ const ProductPage = () => {
           opacity: 1;
         }
 
-        /* Responsive adjustments */
-        @media (max-width: 1024px) {
-          .grid {
-            gap: 1.5rem;
-          }
-          
-          .feature-item {
-            padding: 0.75rem;
-          }
-        }
-
-        @media (max-width: 768px) {
-          .headline {
-            font-size: clamp(2rem, 8vw, 3rem) !important;
-          }
-          
-          .features-grid {
-            grid-template-columns: 1fr;
-            gap: 2rem;
-            text-align: center;
-          }
-          
-          .stat {
-            font-size: clamp(2rem, 4vw, 2.5rem) !important;
-          }
-          
-          /* Stack layout on mobile */
-          .flex {
-            flex-direction: column;
-          }
-          
-          .w-1\\/2 {
-            width: 100%;
-          }
-          
-          .h-screen {
-            height: auto;
-            min-height: 100vh;
-            padding: 3rem 0;
-          }
-          
-          .justify-center {
-            padding: 2rem 1.5rem;
-          }
-        }
-
-        /* Initial hidden states */
         .headline:not(.animate-in-1),
         .body-text:not(.animate-in-2),
         .cuas-badge:not(.animate-in-3),
@@ -301,7 +251,6 @@ const ProductPage = () => {
           transform: translateY(30px);
         }
 
-        /* Animation classes */
         .animate-in-1 {
           animation: fadeInUp 1s ease-out both;
         }
@@ -330,6 +279,16 @@ const ProductPage = () => {
           to {
             opacity: 1;
             transform: translateY(0);
+          }
+        }
+
+        @media (max-width: 768px) {
+          .features-grid {
+            text-align: center;
+          }
+
+          .device-container {
+            max-width: 80%;
           }
         }
       `}</style>

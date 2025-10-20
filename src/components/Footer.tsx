@@ -16,24 +16,24 @@ const Footer = () => {
         />
       </div>
 
-      {/* Subtle aquatic accent line at top */}
+      {/* Subtle accent line at top */}
       <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-32 h-px bg-gradient-to-r from-transparent via-cyan-400/20 to-transparent"></div>
 
-      <div className="relative z-10 container mx-auto px-6 lg:px-12 py-16">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-12 py-12 sm:py-16">
         
         {/* Main Footer Content */}
-        <div className="grid md:grid-cols-3 gap-12 items-start">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-12 items-start">
           
           {/* Company Info */}
-          <div className="space-y-4">
+          <div className="space-y-3 sm:space-y-4 text-center sm:text-left">
             <h3 
-              className="text-white font-black text-2xl"
+              className="text-white font-black text-xl sm:text-2xl"
               style={{ letterSpacing: '-0.02em' }}
             >
               ALTIVION
             </h3>
             <p 
-              className="text-gray-400 text-sm leading-relaxed max-w-xs"
+              className="text-gray-400 text-sm leading-relaxed max-w-xs mx-auto sm:mx-0"
               style={{ lineHeight: '1.6' }}
             >
               Advanced RF detection technology for urban counter-drone operations.
@@ -41,7 +41,7 @@ const Footer = () => {
           </div>
 
           {/* Navigation Links */}
-          <div className="space-y-4">
+          <div className="space-y-3 sm:space-y-4 text-center sm:text-left">
             <h4 className="text-white font-semibold text-sm uppercase tracking-wider">
               Navigation
             </h4>
@@ -68,7 +68,7 @@ const Footer = () => {
           </div>
 
           {/* Contact Info */}
-          <div className="space-y-4">
+          <div className="space-y-3 sm:space-y-4 text-center sm:text-left">
             <h4 className="text-white font-semibold text-sm uppercase tracking-wider">
               Connect
             </h4>
@@ -82,7 +82,7 @@ const Footer = () => {
             </div>
             
             {/* CUAS Badge */}
-            <div className="flex items-center gap-2 mt-6">
+            <div className="flex items-center gap-2 mt-4 sm:mt-6 justify-center sm:justify-start">
               <div className="w-4 h-px bg-gradient-to-r from-cyan-400/40 to-transparent"></div>
               <span 
                 className="text-cyan-400/70 font-medium text-xs tracking-wider"
@@ -94,8 +94,8 @@ const Footer = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="mt-12 pt-8 border-t border-gray-800">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-gray-800">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-3 sm:gap-4 text-center">
             
             {/* Copyright */}
             <p className="text-gray-500 text-xs">
@@ -103,7 +103,7 @@ const Footer = () => {
             </p>
 
             {/* Links */}
-            <div className="flex items-center gap-6">
+            <div className="flex items-center gap-4 sm:gap-6">
               <a 
                 href="#" 
                 className="text-gray-500 text-xs hover:text-gray-300 transition-colors duration-300"
@@ -125,6 +125,7 @@ const Footer = () => {
       <style jsx>{`
         .footer-link {
           position: relative;
+          display: inline-block;
         }
 
         .footer-link::before {
@@ -142,27 +143,10 @@ const Footer = () => {
           width: 100%;
         }
 
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-          .container {
-            padding-left: 1.5rem;
-            padding-right: 1.5rem;
-            padding-top: 3rem;
-            padding-bottom: 3rem;
-          }
-          
-          .grid {
-            grid-template-columns: 1fr;
-            gap: 2rem;
-          }
-          
-          .flex-col {
-            text-align: center;
-          }
-          
-          .md\\:flex-row {
-            flex-direction: column;
-            gap: 1rem;
+        @media (max-width: 640px) {
+          .footer-link::before {
+            left: 50%;
+            transform: translateX(-50%);
           }
         }
       `}</style>

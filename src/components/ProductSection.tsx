@@ -156,7 +156,7 @@ const ProductPage = () => {
         </div>
 
         {/* Right Device Area */}
-        <div className="w-full md:w-1/2 relative flex items-center md:items-end justify-center mt-4 md:mt-0 pb-4 md:pb-0">
+        <div className="w-full md:w-1/2 relative flex items-end justify-center mt-8 md:mt-0 pb-4 md:pb-0">
           
           {/* Subtle Background Glow */}
           <div className="absolute inset-0 bg-gradient-radial from-cyan-400/3 via-transparent to-transparent"></div>
@@ -188,7 +188,14 @@ const ProductPage = () => {
           filter: drop-shadow(0 0 40px rgba(0, 255, 255, 0.1));
         }
 
-        @media (min-width: 768px) {
+        @media (min-width: 768px) and (max-width: 1023px) {
+          .device-image {
+            height: 65vh;
+            max-width: none;
+          }
+        }
+
+        @media (min-width: 1024px) {
           .device-image {
             height: 80vh;
             max-width: none;

@@ -166,12 +166,7 @@ const ProductPage = () => {
             <img 
               src="/Device.png" 
               alt="SilentRaven RF Detection Device"
-              className="w-auto h-auto object-contain mx-auto filter drop-shadow-2xl"
-              style={{
-                height: 'clamp(300px, 60vh, 80vh)',
-                maxWidth: '90vw',
-                filter: 'drop-shadow(0 0 40px rgba(0, 255, 255, 0.1))'
-              }}
+              className="w-auto h-auto object-contain mx-auto filter drop-shadow-2xl device-image"
             />
           </div>
         </div>
@@ -185,6 +180,19 @@ const ProductPage = () => {
 
         .headline {
           text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+        }
+
+        .device-image {
+          height: clamp(300px, 55vh, 400px);
+          max-width: 90vw;
+          filter: drop-shadow(0 0 40px rgba(0, 255, 255, 0.1));
+        }
+
+        @media (min-width: 768px) {
+          .device-image {
+            height: 80vh;
+            max-width: none;
+          }
         }
 
         .stat {

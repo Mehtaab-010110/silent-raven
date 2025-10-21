@@ -4,7 +4,7 @@ import React from 'react';
 
 const HeroSection = () => {
   return (
-    <div className="relative min-h-screen bg-raven-black overflow-hidden">
+    <div className="relative h-[55vh] sm:h-[70vh] md:min-h-screen bg-raven-black overflow-hidden">
       
       {/* Background Image */}
       <div 

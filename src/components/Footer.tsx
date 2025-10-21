@@ -42,10 +42,10 @@ const Footer = () => {
 
           {/* Navigation Links */}
           <div className="space-y-3 sm:space-y-4 text-center sm:text-left">
-            <h4 className="text-white font-semibold text-sm uppercase tracking-wider">
+            <h4 className="text-white font-semibold text-sm uppercase tracking-wider mb-4">
               Navigation
             </h4>
-            <nav className="space-y-2">
+            <nav className="flex flex-col gap-3">
               <a 
                 href="#product-section" 
                 className="footer-link block text-gray-400 text-sm hover:text-white transition-colors duration-300"
@@ -144,6 +144,12 @@ const Footer = () => {
         }
 
         @media (max-width: 640px) {
+          .footer-link {
+            display: block;
+            margin: 0 auto;
+            width: fit-content;
+          }
+          
           .footer-link::before {
             left: 50%;
             transform: translateX(-50%);

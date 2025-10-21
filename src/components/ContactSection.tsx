@@ -62,14 +62,11 @@ const ContactSection = () => {
             style={{
               fontSize: 'clamp(0.85rem, 1.5vw, 1.1rem)',
               color: '#666666',
-              maxWidth: '600px',
+              maxWidth: '700px',
               margin: '1.5rem auto 0'
             }}
           >
-            Ready to deploy proven RF detection technology in your urban environment? 
-            <br className="hidden sm:block" />
-            <span className="sm:inline"> </span>
-            Contact our team for <span className="text-black font-semibold">technical consultation</span> and field demonstrations.
+            Ready to deploy proven RF detection technology in your urban environment? Contact our team for <span className="text-black font-semibold">technical consultation</span> and field demonstrations.
           </p>
         </div>
 

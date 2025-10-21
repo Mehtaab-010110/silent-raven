@@ -168,8 +168,8 @@ const ProductPage = () => {
               alt="SilentRaven RF Detection Device"
               className="w-auto h-auto object-contain mx-auto filter drop-shadow-2xl"
               style={{
-                maxHeight: 'clamp(280px, 55vh, 80vh)',
-                maxWidth: '85vw',
+                height: 'clamp(300px, 60vh, 80vh)',
+                maxWidth: '90vw',
                 filter: 'drop-shadow(0 0 40px rgba(0, 255, 255, 0.1))'
               }}
             />

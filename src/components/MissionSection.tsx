@@ -122,7 +122,7 @@ const MissionSection = () => {
       {/* Learn More Link */}
       <div className="absolute bottom-4 sm:bottom-8 right-4 sm:right-8 z-20">
         <a 
-          href="#next-section" 
+          href="#about-section" 
           className="learn-more-link group flex items-center gap-2 text-white/90 hover:text-white transition-all duration-300 ease-in-out"
         >
           <span className="text-xs sm:text-sm font-light tracking-wide uppercase">Learn More</span>

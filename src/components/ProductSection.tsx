@@ -90,7 +90,7 @@ const ProductPage = () => {
                   letterSpacing: '-0.02em'
                 }}
               >
-                5km
+                3km
               </div>
               <div 
                 className="subtitle text-gray-400 font-light"
@@ -114,7 +114,7 @@ const ProductPage = () => {
                   letterSpacing: '-0.02em'
                 }}
               >
-                &lt;3min
+                &lt;1min
               </div>
               <div 
                 className="subtitle text-gray-400 font-light"
@@ -138,7 +138,7 @@ const ProductPage = () => {
                   letterSpacing: '-0.02em'
                 }}
               >
-                50+
+                10+
               </div>
               <div 
                 className="subtitle text-gray-400 font-light"

@@ -16,11 +16,15 @@ const SlickNavbar = () => {
   }, []);
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
     setIsMobileMenuOpen(false);
+    
+    // Small delay to ensure smooth behavior
+    setTimeout(() => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 100);
   };
 
   return (
@@ -35,38 +39,37 @@ const SlickNavbar = () => {
             
             {/* Logo */}
             <div className="flex-shrink-0">
-              <div
-                className="text-2xl font-black text-white cursor-pointer group"
+              <button
+                className="text-2xl font-black text-white cursor-pointer group bg-transparent border-0 p-0"
                 onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                type="button"
               >
-                <span className="relative">
+                <span className="relative inline-block">
                   ALTIVION
-                  <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-transparent transition-all duration-300 group-hover:w-full"></div>
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-transparent transition-all duration-300 group-hover:w-full"></span>
                 </span>
-              </div>
+              </button>
             </div>
 
             {/* Desktop Navigation */}
             <div className="hidden md:block">
               <div className="ml-10 flex items-center space-x-8">
-                <NavLink 
+                {/* Product Link - Simplified */}
+                <button
                   onClick={() => scrollToSection('product-section')}
-                  text="Product"
-                />
-                <a
-                  href="mailto:info@altivion.ca"
-                  className="nav-link"
+                  className="product-link"
+                  type="button"
                 >
-                  Contact
-                </a>
+                  Product
+                </button>
                 
-                {/* CTA Button */}
+                {/* Contact Button */}
                 <button 
                   onClick={() => scrollToSection('contact-section')}
-                  className="cta-button group relative px-6 py-2 text-sm font-semibold text-white border border-white/20 rounded transition-all duration-300 hover:border-cyan-400/60 hover:shadow-lg hover:shadow-cyan-400/20"
+                  className="contact-button"
+                  type="button"
                 >
-                  <span className="relative z-10">REQUEST DEMO</span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded"></div>
+                  Contact
                 </button>
               </div>
             </div>
@@ -75,8 +78,9 @@ const SlickNavbar = () => {
             <div className="md:hidden">
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="mobile-menu-btn group flex flex-col justify-center w-8 h-8 cursor-pointer"
+                className="mobile-menu-btn group flex flex-col justify-center w-8 h-8 cursor-pointer bg-transparent border-0 p-0"
                 aria-label="Toggle mobile menu"
+                type="button"
               >
                 <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${
                   isMobileMenuOpen ? 'rotate-45 translate-y-1' : ''
@@ -99,23 +103,21 @@ const SlickNavbar = () => {
             : 'max-h-0 opacity-0'
         } overflow-hidden backdrop-blur-md bg-black/90 border-t border-white/10`}>
           <div className="px-6 py-6 space-y-4">
-            <MobileNavLink 
+            <button
               onClick={() => scrollToSection('product-section')}
-              text="Product"
-            />
-            <a
-              href="mailto:info@altivion.ca"
-              className="mobile-nav-link"
+              className="mobile-product-link"
+              type="button"
             >
-              Contact
-            </a>
+              Product
+            </button>
             
-            {/* Mobile CTA */}
+            {/* Mobile Contact Button */}
             <button 
               onClick={() => scrollToSection('contact-section')}
-              className="w-full mt-6 px-6 py-3 text-sm font-semibold text-white border border-cyan-400/40 rounded bg-cyan-400/10 transition-all duration-300 hover:bg-cyan-400/20"
+              className="mobile-contact-button"
+              type="button"
             >
-              REQUEST DEMO
+              Contact
             </button>
           </div>
         </div>
@@ -127,59 +129,60 @@ const SlickNavbar = () => {
           max-width: 1200px;
         }
 
-        .nav-link {
+        /* Product Link - Desktop */
+        .product-link {
           position: relative;
           color: rgba(255, 255, 255, 0.8);
+          background: transparent;
+          border: none;
           font-weight: 600;
           font-size: 0.9rem;
-          text-transform: uppercase;
           letter-spacing: 0.05em;
           cursor: pointer;
-          transition: all 0.3s ease;
-          padding: 0.5rem 0;
-          text-decoration: none;
+          padding: 0.75rem 0.5rem;
+          transition: color 0.2s ease;
+          outline: none;
         }
 
-        .nav-link:hover {
-          color: white;
+        .product-link:hover {
+          color: rgba(255, 255, 255, 1);
         }
 
-        .nav-link::after {
+        .product-link::before {
           content: '';
           position: absolute;
-          bottom: -2px;
+          bottom: 0;
           left: 0;
-          width: 0;
+          right: 0;
           height: 2px;
           background: rgba(0, 255, 255, 0.6);
           box-shadow: 0 0 8px rgba(0, 255, 255, 0.4);
-          transition: width 0.3s ease;
+          transform: scaleX(0);
+          transform-origin: left;
+          transition: transform 0.3s ease;
         }
 
-        .nav-link:hover::after {
-          width: 100%;
+        .product-link:hover::before {
+          transform: scaleX(1);
         }
 
-        .mobile-nav-link {
-          display: block;
-          color: rgba(255, 255, 255, 0.8);
-          font-weight: 500;
-          font-size: 1rem;
-          text-transform: uppercase;
-          letter-spacing: 0.05em;
+        /* Contact Button - Desktop */
+        .contact-button {
+          position: relative;
+          background: transparent;
+          color: white;
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          border-radius: 0.25rem;
+          padding: 0.5rem 1.5rem;
+          font-size: 0.875rem;
+          font-weight: 600;
           cursor: pointer;
+          overflow: hidden;
           transition: all 0.3s ease;
-          padding: 0.75rem 0;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-          text-decoration: none;
+          outline: none;
         }
 
-        .mobile-nav-link:hover {
-          color: rgba(0, 255, 255, 0.9);
-          transform: translateX(8px);
-        }
-
-        .cta-button::before {
+        .contact-button::before {
           content: '';
           position: absolute;
           top: 0;
@@ -190,8 +193,61 @@ const SlickNavbar = () => {
           transition: left 0.6s ease;
         }
 
-        .cta-button:hover::before {
+        .contact-button:hover {
+          border-color: rgba(0, 255, 255, 0.6);
+          box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+        }
+
+        .contact-button:hover::before {
           left: 100%;
+        }
+
+        /* Mobile Product Link */
+        .mobile-product-link {
+          display: block;
+          width: 100%;
+          text-align: left;
+          background: transparent;
+          border: none;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+          color: rgba(255, 255, 255, 0.8);
+          font-weight: 500;
+          font-size: 1rem;
+          letter-spacing: 0.05em;
+          cursor: pointer;
+          padding: 0.75rem 0;
+          transition: all 0.3s ease;
+          outline: none;
+        }
+
+        .mobile-product-link:hover {
+          color: rgba(0, 255, 255, 0.9);
+          transform: translateX(8px);
+        }
+
+        /* Mobile Contact Button */
+        .mobile-contact-button {
+          width: 100%;
+          margin-top: 1.5rem;
+          background: rgba(0, 255, 255, 0.1);
+          border: 1px solid rgba(0, 255, 255, 0.4);
+          border-radius: 0.25rem;
+          color: white;
+          padding: 0.75rem 1.5rem;
+          font-size: 0.875rem;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          outline: none;
+        }
+
+        .mobile-contact-button:hover {
+          background: rgba(0, 255, 255, 0.2);
+        }
+
+        /* Remove default button styles */
+        button {
+          -webkit-tap-highlight-color: transparent;
         }
 
         @supports not (backdrop-filter: blur(12px)) {
@@ -210,25 +266,5 @@ const SlickNavbar = () => {
     </>
   );
 };
-
-// Desktop Nav Link Component
-const NavLink = ({ onClick, text }: { onClick: () => void; text: string }) => (
-  <div 
-    onClick={onClick}
-    className="nav-link"
-  >
-    {text}
-  </div>
-);
-
-// Mobile Nav Link Component  
-const MobileNavLink = ({ onClick, text }: { onClick: () => void; text: string }) => (
-  <div 
-    onClick={onClick}
-    className="mobile-nav-link"
-  >
-    {text}
-  </div>
-);
 
 export default SlickNavbar;

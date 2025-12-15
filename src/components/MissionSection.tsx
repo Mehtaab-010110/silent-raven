@@ -1,23 +1,20 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from 'react';
-import Link from 'next/link';
 
 const MissionSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const bgRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
-  const buttonRef = useRef<HTMLDivElement>(null);
   const [hasAnimated, setHasAnimated] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (!sectionRef.current || !bgRef.current || !textRef.current || !buttonRef.current) return;
+      if (!sectionRef.current || !bgRef.current || !textRef.current) return;
 
       const section = sectionRef.current;
       const bg = bgRef.current;
       const text = textRef.current;
-      const button = buttonRef.current;
       const rect = section.getBoundingClientRect();
       const windowHeight = window.innerHeight;
 
@@ -31,7 +28,6 @@ const MissionSection = () => {
         // Add animation classes
         bg.classList.add('animate-in');
         text.classList.add('animate-in');
-        button.classList.add('animate-in');
       }
 
       // Only continue with scroll effects if section has been animated
@@ -101,7 +97,7 @@ const MissionSection = () => {
       <div className="absolute inset-0 flex items-center justify-center z-10">
         <div 
           ref={textRef}
-          className="text-center text-fade-in flex flex-col items-center"
+          className="text-center text-fade-in"
           style={{
             willChange: 'transform',
             transformOrigin: 'center center'
@@ -122,9 +118,9 @@ const MissionSection = () => {
             </span>
           </h2>
           
-          {/* Additional subtitle */}
+          {/* Subtitle */}
           <p 
-            className="fade-in-subtitle mt-2 mb-8 select-none"
+            className="fade-in-subtitle mt-2 select-none"
             style={{
               fontSize: 'clamp(0.7rem, 1.4vw, 1rem)',
               color: '#333333',
@@ -133,38 +129,8 @@ const MissionSection = () => {
               lineHeight: '1.4'
             }}
           >
-            Robust field testing throughout Canada's <br /> <span style={{fontWeight: '800'}}>real urban environments</span>.
+            Robust field testing throughout Canada&apos;s <br /> <span style={{fontWeight: '800'}}>real urban environments</span>.
           </p>
-
-          {/* Centered "Our Story" Button */}
-          <div 
-            ref={buttonRef}
-            className="button-fade-in"
-          >
-            <Link 
-              href="/our-story"
-              className="our-story-button group inline-flex items-center gap-3 px-8 py-4 transition-all duration-500 ease-out"
-            >
-              <span className="text-base font-medium tracking-wider uppercase">Our Story</span>
-              <div className="arrow-container">
-                <svg 
-                  width="20" 
-                  height="20" 
-                  viewBox="0 0 24 24" 
-                  fill="none" 
-                  className="arrow-icon transition-transform duration-500 ease-out group-hover:translate-x-2"
-                >
-                  <path 
-                    d="M5 12h14m-7-7l7 7-7 7" 
-                    stroke="currentColor" 
-                    strokeWidth="2" 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </div>
-            </Link>
-          </div>
         </div>
       </div>
       
@@ -179,12 +145,6 @@ const MissionSection = () => {
 
         .text-fade-in {
           opacity: 0;
-        }
-
-        .button-fade-in {
-          opacity: 0;
-          transform: translateY(30px);
-          transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
 
         .fade-in-word {
@@ -219,87 +179,6 @@ const MissionSection = () => {
           opacity: 1;
           transform: translateY(0);
           transition-delay: 0.7s;
-        }
-
-        .text-fade-in.animate-in + .button-fade-in,
-        .button-fade-in.animate-in {
-          opacity: 1;
-          transform: translateY(0);
-          transition-delay: 1s;
-        }
-
-        /* Our Story Button Styles */
-        .our-story-button {
-          position: relative;
-          border-radius: 0;
-          backdrop-filter: blur(12px);
-          background: rgba(0, 0, 0, 0.75);
-          border: 2px solid rgba(255, 255, 255, 0.4);
-          color: #ffffff;
-          text-decoration: none;
-          overflow: hidden;
-          box-shadow: 
-            0 4px 16px rgba(0, 0, 0, 0.15),
-            inset 0 1px 0 rgba(255, 255, 255, 0.1);
-        }
-
-        .our-story-button::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: -100%;
-          width: 100%;
-          height: 100%;
-          background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
-          transition: left 0.6s ease-out;
-        }
-
-        .our-story-button:hover::before {
-          left: 100%;
-        }
-
-        .our-story-button::after {
-          content: '';
-          position: absolute;
-          bottom: 0;
-          left: 50%;
-          width: 0;
-          height: 2px;
-          background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.9), transparent);
-          transition: all 0.5s ease-out;
-          transform: translateX(-50%);
-        }
-
-        .our-story-button:hover {
-          background: rgba(0, 0, 0, 0.85);
-          border-color: rgba(255, 255, 255, 0.6);
-          transform: translateY(-2px);
-          box-shadow: 
-            0 8px 24px rgba(0, 0, 0, 0.25),
-            inset 0 1px 0 rgba(255, 255, 255, 0.15);
-        }
-
-        .our-story-button:hover::after {
-          width: 100%;
-        }
-
-        .arrow-container {
-          width: 24px;
-          height: 20px;
-          display: flex;
-          align-items: center;
-          justify-content: flex-start;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-          .our-story-button {
-            padding: 12px 24px;
-          }
-          
-          .our-story-button span {
-            font-size: 0.875rem;
-          }
         }
 
         /* Performance optimizations */

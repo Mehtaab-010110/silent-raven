@@ -1,6 +1,5 @@
 import HeroSection from '@/components/Hero'
 import MissionSection from '@/components/MissionSection'
-import AboutSection from '@/components/AboutSection'
 import ProductSection from '@/components/ProductSection'
 import ContactSection from '@/components/ContactSection'
 import Footer from '@/components/Footer'

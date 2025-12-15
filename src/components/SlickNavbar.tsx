@@ -53,14 +53,12 @@ const SlickNavbar = () => {
                   onClick={() => scrollToSection('product-section')}
                   text="Product"
                 />
-                <NavLink 
-                  onClick={() => scrollToSection('mission-section')}
-                  text="Mission"
-                />
-                <NavLink 
-                  onClick={() => scrollToSection('contact-section')}
-                  text="Contact"
-                />
+                <a
+                  href="mailto:info@altivion.ca"
+                  className="nav-link"
+                >
+                  Contact
+                </a>
                 
                 {/* CTA Button */}
                 <button 
@@ -105,14 +103,12 @@ const SlickNavbar = () => {
               onClick={() => scrollToSection('product-section')}
               text="Product"
             />
-            <MobileNavLink 
-              onClick={() => scrollToSection('mission-section')}
-              text="Mission"
-            />
-            <MobileNavLink 
-              onClick={() => scrollToSection('contact-section')}
-              text="Contact"
-            />
+            <a
+              href="mailto:info@altivion.ca"
+              className="mobile-nav-link"
+            >
+              Contact
+            </a>
             
             {/* Mobile CTA */}
             <button 
@@ -141,6 +137,7 @@ const SlickNavbar = () => {
           cursor: pointer;
           transition: all 0.3s ease;
           padding: 0.5rem 0;
+          text-decoration: none;
         }
 
         .nav-link:hover {
@@ -153,8 +150,9 @@ const SlickNavbar = () => {
           bottom: -2px;
           left: 0;
           width: 0;
-          height: 1px;
-          background: linear-gradient(90deg, rgba(0, 255, 255, 0.8), transparent);
+          height: 2px;
+          background: rgba(0, 255, 255, 0.6);
+          box-shadow: 0 0 8px rgba(0, 255, 255, 0.4);
           transition: width 0.3s ease;
         }
 
@@ -173,6 +171,7 @@ const SlickNavbar = () => {
           transition: all 0.3s ease;
           padding: 0.75rem 0;
           border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+          text-decoration: none;
         }
 
         .mobile-nav-link:hover {

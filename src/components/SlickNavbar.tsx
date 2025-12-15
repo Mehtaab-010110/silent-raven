@@ -139,7 +139,7 @@ const SlickNavbar = () => {
           font-size: 0.9rem;
           letter-spacing: 0.05em;
           cursor: pointer;
-          padding: 0.75rem 0.5rem;
+          padding: 0.5rem 0;
           transition: color 0.2s ease;
           outline: none;
         }
@@ -151,19 +151,16 @@ const SlickNavbar = () => {
         .product-link::before {
           content: '';
           position: absolute;
-          bottom: 0;
+          bottom: -0.25rem;
           left: 0;
-          right: 0;
-          height: 2px;
-          background: rgba(0, 255, 255, 0.6);
-          box-shadow: 0 0 8px rgba(0, 255, 255, 0.4);
-          transform: scaleX(0);
-          transform-origin: left;
-          transition: transform 0.3s ease;
+          width: 0;
+          height: 0.125rem;
+          background: linear-gradient(to right, rgb(34, 211, 238), transparent);
+          transition: width 0.3s ease;
         }
 
         .product-link:hover::before {
-          transform: scaleX(1);
+          width: 100%;
         }
 
         /* Contact Button - Desktop */

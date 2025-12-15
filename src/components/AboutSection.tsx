@@ -102,7 +102,7 @@ const AboutSection = () => {
                 lineHeight: '1.7'
               }}
             >
-              Rather than developing untested solutions from scratch, we take a pragmatic approach: adapting battle-proven RF detection systems from international partners and rigorously testing them in Canada's diverse urban landscapes.
+              Rather than developing untested solutions from scratch, we take a pragmatic approach: adapting battle-proven RF detection systems from international partners and rigorously testing them in Canada&apos;s diverse urban landscapes.
             </p>
 
             <p 
@@ -147,7 +147,7 @@ const AboutSection = () => {
                 lineHeight: '1.7'
               }}
             >
-              Our team combines deep RF engineering expertise with practical field experience. We understand that theoretical performance means nothing if a system can't be deployed rapidly in real-world conditions.
+              Our team combines deep RF engineering expertise with practical field experience. We understand that theoretical performance means nothing if a system can&apos;t be deployed rapidly in real-world conditions.
             </p>
 
             <p 

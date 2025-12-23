@@ -1,5 +1,4 @@
 import HeroSection from '@/components/Hero'
-import MissionSection from '@/components/MissionSection'
 import ProductSection from '@/components/ProductSection'
 import ContactSection from '@/components/ContactSection'
 import Footer from '@/components/Footer'
@@ -11,7 +10,6 @@ export default function Home() {
     <>
       <SlickNavbar />
       <HeroSection />
-      <MissionSection />
       <GifWorkSection />
       <ProductSection />
       <ContactSection />

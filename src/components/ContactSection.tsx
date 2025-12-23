@@ -27,72 +27,56 @@ const ContactSection = () => {
   return (
     <section 
       ref={sectionRef}
-      className="bg-white relative overflow-hidden"
+      className="bg-black relative overflow-hidden"
       id="contact-section"
     >
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-[0.02]">
-        <div 
-          className="w-full h-full"
-          style={{
-            backgroundImage: `radial-gradient(circle at 2px 2px, rgba(0,0,0,0.3) 1px, transparent 0)`,
-            backgroundSize: '40px 40px'
-          }}
-        />
-      </div>
+      {/* Top Accent Line */}
+      <div 
+        className="absolute left-1/2 transform -translate-x-1/2 w-[70%] h-px bg-gradient-to-r from-transparent via-cyan-400 to-transparent"
+        style={{ top: '6%' }}
+      ></div>
 
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-32 pb-16 sm:pb-20">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-32 sm:py-40">
         
-        {/* Section Header */}
-        <div className="text-center mb-12 sm:mb-16">
+        {/* Centered Content */}
+        <div className="text-center max-w-3xl mx-auto">
+          
+          {/* Section Title */}
           <h2 
-            className={`section-title font-bold mb-6 sm:mb-8 ${hasAnimated ? 'fade-in-1' : ''}`}
+            className={`font-bold mb-6 sm:mb-8 ${hasAnimated ? 'fade-in-1' : ''}`}
             style={{
               fontSize: 'clamp(1.8rem, 5vw, 2.8rem)',
-              color: '#1a1a1a',
+              color: '#ffffff',
               letterSpacing: '-0.02em',
-              lineHeight: '0.95'
+              lineHeight: '1.1'
             }}
           >
             Get in Touch
           </h2>
-          <div className={`animated-line mx-auto ${hasAnimated ? 'fade-in-2' : ''}`}></div>
+
+          {/* Description Text */}
           <p 
-            className={`section-description mt-4 sm:mt-6 px-4 ${hasAnimated ? 'fade-in-3' : ''}`}
+            className={`mb-12 px-4 ${hasAnimated ? 'fade-in-2' : ''}`}
             style={{
               fontSize: 'clamp(0.85rem, 1.5vw, 1.1rem)',
-              color: '#666666',
+              color: 'rgba(255, 255, 255, 0.6)',
               maxWidth: '700px',
-              margin: '1.5rem auto 0'
+              margin: '0 auto 3rem',
+              lineHeight: '1.6'
             }}
           >
-            Ready to deploy proven RF detection technology in your urban environment? Contact our team for <span className="text-black font-semibold">technical consultation</span> and field demonstrations.
+            For technical consultation and field demonstrations of our RF detection systems.
           </p>
-        </div>
 
-        {/* Contact Information */}
-        <div className="max-w-2xl mx-auto px-4">
-          <div className={`contact-container ${hasAnimated ? 'fade-in-4' : ''}`}>
-            <div className="space-y-6">
-              
-              {/* Email */}
-              <div className="contact-item">
-                <div className="contact-label">Email</div>
-                <a 
-                  href="mailto:info@altivion.ca"
-                  className="contact-value"
-                >
-                  info@altivion.ca
-                </a>
-              </div>
-
-              {/* Location */}
-              <div className="contact-item">
-                <div className="contact-label">Location</div>
-                <div className="contact-value-static">Calgary, Alberta, Canada</div>
-              </div>
-
-            </div>
+          {/* Email Button */}
+          <div className={`flex justify-center ${hasAnimated ? 'fade-in-3' : ''}`}>
+            <a 
+              href="mailto:info@altivion.ca"
+              className="email-button group"
+            >
+              <span className="email-text">info@altivion.ca</span>
+              <div className="glow-border"></div>
+            </a>
           </div>
         </div>
       </div>
@@ -101,8 +85,7 @@ const ContactSection = () => {
       <style jsx>{`
         .fade-in-1,
         .fade-in-2,
-        .fade-in-3,
-        .fade-in-4 {
+        .fade-in-3 {
           opacity: 0;
           transform: translateY(30px);
         }
@@ -111,21 +94,10 @@ const ContactSection = () => {
           animation: fadeInUp 1.0s ease-out 0.2s both; 
         }
         .fade-in-2 { 
-          animation: fadeInUp 1.0s ease-out 0.4s both, lineExpand 1.5s ease-out 0.8s both; 
+          animation: fadeInUp 1.0s ease-out 0.4s both; 
         }
         .fade-in-3 { 
           animation: fadeInUp 1.0s ease-out 0.6s both; 
-        }
-        .fade-in-4 { 
-          animation: fadeInUp 1.0s ease-out 0.8s both; 
-        }
-
-        .section-title:not(.fade-in-1),
-        .animated-line:not(.fade-in-2),
-        .section-description:not(.fade-in-3),
-        .contact-container:not(.fade-in-4) {
-          opacity: 0;
-          transform: translateY(30px);
         }
 
         @keyframes fadeInUp {
@@ -139,84 +111,85 @@ const ContactSection = () => {
           }
         }
 
-        @keyframes lineExpand {
-          from {
-            width: 30px;
-          }
-          to {
-            width: 180px;
-          }
-        }
-
-        .animated-line {
-          height: 1px;
-          width: 30px;
-          background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.8), transparent);
+        /* Email Button */
+        .email-button {
           position: relative;
-        }
-
-        .contact-container {
-          background: linear-gradient(135deg, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.01) 100%);
-          border: 1px solid rgba(0, 0, 0, 0.1);
-          border-radius: 4px;
-          padding: 2.5rem;
-          backdrop-filter: blur(10px);
-        }
-
-        @media (min-width: 640px) {
-          .contact-container {
-            padding: 3rem;
-          }
-        }
-
-        .contact-item {
-          padding-bottom: 1.5rem;
-          border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-        }
-
-        .contact-item:last-child {
-          padding-bottom: 0;
-          border-bottom: none;
-        }
-
-        .contact-label {
-          font-size: clamp(0.75rem, 1vw, 0.85rem);
-          font-weight: 600;
-          text-transform: uppercase;
-          letter-spacing: 0.1em;
-          color: #666666;
-          margin-bottom: 0.5rem;
-        }
-
-        .contact-value {
-          font-size: clamp(1rem, 1.3vw, 1.2rem);
-          font-weight: 600;
-          color: #1a1a1a;
-          text-decoration: none;
           display: inline-block;
+          padding: 0.9rem 1.8rem;
+          background: rgba(255, 255, 255, 0.05);
+          backdrop-filter: blur(12px);
+          text-decoration: none;
+          overflow: hidden;
           transition: all 0.3s ease;
-          position: relative;
         }
 
-        .contact-value::after {
+        .email-text {
+          position: relative;
+          z-index: 2;
+          font-size: clamp(0.9rem, 1.1vw, 1.05rem);
+          font-weight: 600;
+          color: #ffffff;
+          letter-spacing: 0.02em;
+          transition: color 0.3s ease;
+        }
+
+        /* Glow Border Effect */
+        .glow-border {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(
+            90deg,
+            transparent,
+            rgb(34, 211, 238),
+            transparent
+          );
+          opacity: 0;
+          transition: opacity 0.3s ease;
+        }
+
+        .glow-border::before {
           content: '';
           position: absolute;
-          bottom: -2px;
-          left: 0;
-          width: 0;
-          height: 2px;
-          background: #1a1a1a;
-          transition: width 0.3s ease;
+          inset: 1px;
+          background: rgba(0, 0, 0, 0.9);
+          backdrop-filter: blur(12px);
         }
 
-        .contact-value:hover::after {
-          width: 100%;
+        /* Hover State */
+        .email-button:hover {
+          box-shadow: 
+            0 0 20px rgba(34, 211, 238, 0.3),
+            0 0 40px rgba(34, 211, 238, 0.15),
+            inset 0 0 20px rgba(34, 211, 238, 0.1);
         }
 
-        .contact-value-static {
-          font-size: clamp(1rem, 1.3vw, 1.2rem);
-          font-weight: 600;
-          color: #1a1a1a;
+        .email-button:hover .email-text {
+          color: rgb(34, 211, 238);
+        }
+
+        .email-button:hover .glow-border {
+          opacity: 1;
+          animation: borderPulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes borderPulse {
+          0%, 100% {
+            opacity: 0.6;
+          }
+          50% {
+            opacity: 1;
+          }
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+          .email-button {
+            padding: 0.8rem 1.5rem;
+          }
+          
+          .email-text {
+            font-size: 0.85rem;
+          }
         }
       `}</style>
     </section>

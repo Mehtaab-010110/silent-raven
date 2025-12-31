@@ -85,7 +85,7 @@ const OurStoryPage = () => {
           <div 
             className={`background-image ${hasLoaded ? 'bg-fade-in' : ''}`}
             style={{
-              backgroundImage: `url('/ottawa-landscape.jpg')`,
+              backgroundImage: `url('/ottawa.jpg')`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               backgroundRepeat: 'no-repeat'

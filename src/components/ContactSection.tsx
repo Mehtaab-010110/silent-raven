@@ -32,11 +32,11 @@ const ContactSection = () => {
     >
       {/* Top Accent Line */}
       <div 
-        className="absolute left-1/2 transform -translate-x-1/2 w-[70%] h-px bg-gradient-to-r from-transparent via-cyan-400 to-transparent"
-        style={{ top: '6%' }}
+        className="absolute left-1/2 transform -translate-x-1/2 w-[50%] h-px bg-gradient-to-r from-transparent via-cyan-400 to-transparent"
+        style={{ top: '19%' }}
       ></div>
 
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-32 sm:py-40">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pt-40 sm:pt-48 pb-32 sm:pb-40">
         
         {/* Centered Content */}
         <div className="text-center max-w-3xl mx-auto">

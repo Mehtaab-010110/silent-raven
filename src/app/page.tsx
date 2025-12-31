@@ -4,6 +4,7 @@ import ContactSection from '@/components/ContactSection'
 import Footer from '@/components/Footer'
 import SlickNavbar from '@/components/SlickNavbar'
 import GifWorkSection from '@/components/GifWorkSection'  
+import CUASVideoSection from '@/components/CUASVideoSection'
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <SlickNavbar />
       <HeroSection />
       <GifWorkSection />
+      <CUASVideoSection />
       <ProductSection />
       <ContactSection />
       <Footer />

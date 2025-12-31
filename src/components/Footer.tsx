@@ -58,12 +58,7 @@ const Footer = () => {
               >
                 Contact
               </a>
-              <a 
-                href="#" 
-                className="footer-link block text-gray-400 text-sm hover:text-white transition-colors duration-300"
-              >
-                Documentation
-              </a>
+              
             </nav>
           </div>
 

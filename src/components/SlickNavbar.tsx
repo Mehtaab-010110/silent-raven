@@ -18,7 +18,6 @@ const SlickNavbar = () => {
   const scrollToSection = (sectionId: string) => {
     setIsMobileMenuOpen(false);
     
-    // Small delay to ensure smooth behavior
     setTimeout(() => {
       const element = document.getElementById(sectionId);
       if (element) {
@@ -32,9 +31,9 @@ const SlickNavbar = () => {
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out ${
         isScrolled 
           ? 'backdrop-blur-md bg-black/80 border-b border-white/10' 
-          : 'bg-transparent'
+          : 'bg-black/95 border-b border-white/5'
       }`}>
-        <div className="container mx-auto px-4 lg:px-6">
+        <div className="nav-container">
           <div className="flex items-center justify-between h-16">
             
             {/* Logo */}
@@ -54,7 +53,7 @@ const SlickNavbar = () => {
             {/* Desktop Navigation */}
             <div className="hidden md:block">
               <div className="ml-10 flex items-center space-x-8">
-                {/* Product Link - Simplified */}
+                {/* Product Link */}
                 <button
                   onClick={() => scrollToSection('product-section')}
                   className="product-link"
@@ -111,7 +110,6 @@ const SlickNavbar = () => {
               Product
             </button>
             
-            {/* Mobile Contact Button */}
             <button 
               onClick={() => scrollToSection('contact-section')}
               className="mobile-contact-button"
@@ -125,8 +123,11 @@ const SlickNavbar = () => {
 
       {/* Custom Styles */}
       <style jsx>{`
-        .container {
-          max-width: 1200px;
+        .nav-container {
+          max-width: 1400px;
+          margin: 0 auto;
+          padding-left: 3rem;
+          padding-right: 3rem;
         }
 
         /* Product Link - Desktop */
@@ -253,10 +254,17 @@ const SlickNavbar = () => {
           }
         }
 
+        @media (max-width: 1024px) {
+          .nav-container {
+            padding-left: 2rem;
+            padding-right: 2rem;
+          }
+        }
+
         @media (max-width: 768px) {
-          .container {
-            padding-left: 0.75rem;
-            padding-right: 0.75rem;
+          .nav-container {
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
           }
         }
       `}</style>

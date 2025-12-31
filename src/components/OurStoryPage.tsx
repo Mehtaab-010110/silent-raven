@@ -136,15 +136,15 @@ const OurStoryPage = () => {
           <div className="metric-divider"></div>
 
           <div className={`metric ${metricsAnimated ? 'metric-fade-2' : ''}`}>
-            <div className="metric-value">1.2 KM</div>
+            <div className="metric-value">1.3 KM</div>
             <div className="metric-label">Out of Line of Sight</div>
           </div>
 
           <div className="metric-divider"></div>
 
           <div className={`metric ${metricsAnimated ? 'metric-fade-3' : ''}`}>
-            <div className="metric-value">600M</div>
-            <div className="metric-label">Urban Detection Range</div>
+            <div className="metric-value">992M</div>
+            <div className="metric-label">Dense Urban Detection</div>
           </div>
 
         </div>
